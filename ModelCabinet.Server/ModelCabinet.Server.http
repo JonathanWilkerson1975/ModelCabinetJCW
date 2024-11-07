@@ -1,0 +1,6 @@
+@ModelCabinet.Server_HostAddress = http://localhost:5099
+
+GET {{ModelCabinet.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
