@@ -22,6 +22,12 @@ ModelCabinet is a 3d printing management tool for managing 3d printer files in a
 
 ## **Get Started**
 - Download the repository
+- Install Dependencies
+```
+dotnet add package Microsoft.EntityFrameworkCore.SqlServer
+dotnet add package Microsoft.EntityFrameworkCore.Design
+dotnet add package Microsoft.EntityFrameworkCore.Tools
+```
 - Update the database
     - Ensure Dotnet EF tools are installed.
     ```
@@ -29,6 +35,7 @@ ModelCabinet is a 3d printing management tool for managing 3d printer files in a
     ```
     - Deploy the database
     ```
+    cd ModelCabinet.Server
     dotnet ef database update
     ```
 - Run the App
