@@ -6,10 +6,10 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 const routes: Routes = [
   { path: '', pathMatch: "full", component: LandingPageComponent },
   { path: 'LandingPage', redirectTo: '' },
-  // { path: 'Projects', component: ProjectListPageComponent },
-  // { path: 'Projects/:id', component: ProjectPageComponent },
-  // { path: 'Help', component: HelpPageComponent },
-  // { path: 'User', component: UserPageComponent }
+  { path: 'Projects', component: ProjectListPageComponent },
+  { path: 'Projects/:id', component: ProjectPageComponent },
+  { path: 'Help', component: HelpPageComponent },
+  { path: 'User', component: UserPageComponent }
 ];
 
 @NgModule({
