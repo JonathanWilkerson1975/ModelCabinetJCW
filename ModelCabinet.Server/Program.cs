@@ -1,3 +1,6 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using ModelCabinet.Server.Data;
 
 namespace ModelCabinet.Server
 {
@@ -6,6 +9,8 @@ namespace ModelCabinet.Server
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+            builder.Services.AddDbContext<ModelCabinetContext>(options =>
+                options.UseSqlServer(builder.Configuration.GetConnectionString("ModelCabinetContext") ?? throw new InvalidOperationException("Connection string 'ModelCabinetContext' not found.")));
 
             // Add services to the container.
 
