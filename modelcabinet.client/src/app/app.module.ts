@@ -9,6 +9,7 @@ import { provideHttpClient } from '@angular/common/http';
 import { ProjectListPageComponent } from './projects/project-list-page/project-list-page.component';
 import { ProjectDetailComponent } from './projects/project-detail/project-detail.component';
 import { ProjectPageComponent } from './projects/project-page/project-page.component';
+import { AboutProjectComponent } from './about-project/about-project.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ProjectPageComponent } from './projects/project-page/project-page.compo
     ProjectPageComponent,
     ProjectListPageComponent,
     ProjectDetailComponent,
-    NavBarComponent
+    NavBarComponent,
+    AboutProjectComponent,
   ],
   imports: [
     BrowserModule,
