@@ -1,3 +1,8 @@
 export interface Asset {
-    deleteMe: string;
+  assetId: number,
+  name: string,
+  path: string,
+  dateCreation: Date,
+  dateUpdated: Date,
+  fileSize: number
 }
