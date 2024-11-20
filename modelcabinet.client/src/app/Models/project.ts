@@ -5,7 +5,7 @@ export interface projectAsset {
 }
 export interface Project {
 
-  projectID: number,
+  projectId: number,
   name: string,
   creationDate: Date,
   modifiedDate: Date,
