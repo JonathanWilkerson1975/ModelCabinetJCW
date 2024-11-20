@@ -10,9 +10,7 @@ on: push
 jobs:
   run-lint:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./ModelCabinet.Server
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -23,6 +21,6 @@ jobs:
       - name: Lint Backend
         uses: github/super-linter@v4
         env:
-          VALIDATE_ALL_CODEBASE: true
+          VALIDATE_CSHARP: true
           DEFAULT_BRANCH: "master"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
