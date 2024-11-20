@@ -11,7 +11,7 @@ ModelCabinet is a 3d printing management tool for managing 3d printer files in a
 ## **Resources and Information**
 - Documentation
 - Issue Tracker
-- [Roadmap - Trello Board](https://trello.com/b/Exe1hjyr/modelcabinet)
+- [Roadmap - Github Projects](https://github.com/orgs/CCAppDevs/projects/2)
 
 ## **Dependencies**
 - Dotnet
