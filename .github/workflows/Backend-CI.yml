@@ -23,6 +23,10 @@ jobs:
       - name: Lint Backend
         uses: github/super-linter@v4
         env:
-          VALIDATE_ALL_CODEBASE: false
+          VALIDATE_ALL_CODEBASE: true
+          VALIDATE_TYPESCRIPT: false
+          VALIDATE_HTML: false
+          VALIDATE_JSON: false
+          VALIDATE_CSS: false
           DEFAULT_BRANCH: "master"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
