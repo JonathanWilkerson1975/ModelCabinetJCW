@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ModelCabinet.Server
+        working-directory: ./ModelCabinet.Server
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -24,9 +24,5 @@ jobs:
         uses: github/super-linter@v4
         env:
           VALIDATE_ALL_CODEBASE: true
-          VALIDATE_TYPESCRIPT: false
-          VALIDATE_HTML: false
-          VALIDATE_JSON: false
-          VALIDATE_CSS: false
           DEFAULT_BRANCH: "master"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
