@@ -1,4 +1,6 @@
-﻿namespace ModelCabinet.Server.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace ModelCabinet.Server.Models
 {
     public class Asset
     {
@@ -8,5 +10,7 @@
         public DateTime DateCreation {get; set;}
         public DateTime DateUpdated { get; set; }
         public long FileSize { get; set;}
+        [ForeignKey("Project")]
+        public int ProjectId { get; set; }
     }
 }
