@@ -12,4 +12,4 @@ jobs:
     - name: Install modules
       run: npm i
     - name: Run ESLint
-      run: npm lint
+      run: ng lint
