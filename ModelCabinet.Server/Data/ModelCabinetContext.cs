@@ -9,7 +9,7 @@ namespace ModelCabinet.Server.Data
 {
     public class ModelCabinetContext : DbContext
     {
-        public ModelCabinetContext (DbContextOptions<ModelCabinetContext> options)
+        public ModelCabinetContext(DbContextOptions<ModelCabinetContext> options)
             : base(options)
         {
         }
@@ -22,7 +22,24 @@ namespace ModelCabinet.Server.Data
                 new Project
                 {
                     ProjectId = 1,
-                    Name = "Test Project"
+                    Name = "Test Project",
+                    CreationDate = DateTime.Now,
+                    ModifiedDate = DateTime.Now,
+                    Description = "Description",
+                    Author = "Author",
+                    Version = "0.0.1",
+                    shortDescription = "Desc"
+                },
+                new Project
+                {
+                    ProjectId = 2,
+                    Name = "Test Project Two",
+                    CreationDate = DateTime.Now,
+                    ModifiedDate = DateTime.Now,
+                    Description = "Description",
+                    Author = "Author",
+                    Version = "0.0.1",
+                    shortDescription = "Desc"
                 }
             );
 
@@ -30,14 +47,27 @@ namespace ModelCabinet.Server.Data
                 new Asset
                 {
                     AssetId = 1,
-                    Name = "Test Asset"
+                    Name = "Test Asset",
+                    Path = Path.Combine(AppContext.BaseDirectory, "Assets", "TestProject", "HelloWorld.stl"),
+                    DateCreation = DateTime.Now,
+                    DateUpdated = DateTime.Now,
+                    FileSize = 446684,
+                    ProjectId = 1
                 },
                 new Asset
                 {
                     AssetId = 2,
-                    Name = "Test Benchy"
+                    Name = "Benchy",
+                    Path = Path.Combine(AppContext.BaseDirectory, "Assets", "TestProject", "3DBenchy.stl"),
+                    DateCreation = DateTime.Now,
+                    DateUpdated = DateTime.Now,
+                    FileSize = 11285384,
+                    ProjectId = 1
                 }
             );
+
+            // auto load any navigation properties using this pattern
+            modelBuilder.Entity<Project>().Navigation(p => p.Assets).AutoInclude();
 
         }
 

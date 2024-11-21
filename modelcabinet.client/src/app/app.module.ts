@@ -7,6 +7,7 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { provideHttpClient } from '@angular/common/http';
 import { ChangelogComponent } from './changelog/changelog.component';
+import { AboutProjectComponent } from './about-project/about-project.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { ChangelogComponent } from './changelog/changelog.component';
     LandingPageComponent,
     NavBarComponent,
     ChangelogComponent,
+    AboutProjectComponent,
   ],
   imports: [
     BrowserModule,
