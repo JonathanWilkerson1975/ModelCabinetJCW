@@ -9,10 +9,7 @@ namespace ModelCabinet.Server.Data
 {
     public class ModelCabinetContext : DbContext
     {
-        public ModelCabinetContext(DbContextOptions<ModelCabinetContext> options)
-            : base(options)
-        {
-        }
+        public ModelCabinetContext(DbContextOptions<ModelCabinetContext> options) : base(options) { }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -68,7 +65,6 @@ namespace ModelCabinet.Server.Data
 
             // auto load any navigation properties using this pattern
             modelBuilder.Entity<Project>().Navigation(p => p.Assets).AutoInclude();
-
         }
 
         public DbSet<ModelCabinet.Server.Models.Project> Project { get; set; } = default!;
