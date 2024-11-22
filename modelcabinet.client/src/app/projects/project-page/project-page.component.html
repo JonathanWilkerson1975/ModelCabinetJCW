@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-lg-6">
+      <!--Add Angular STL Viewer Here-->
+    </div>
+    <div class="col-12 col-lg-6">
+      <h1 class="text-center">{{ (project | async)!.name }}</h1>
+      <span><b>Description:</b><br /><span class="h5">{{ (project | async)!.shortDescription }}</span></span>
+      <div class="row text-center">
+        <div class="col">
+          <span><b>Description:</b><br /><span class="h5">{{ (project | async)!.shortDescription }}</span></span>
+        </div>
+        <div class="col">
+          <span><b>Author:</b><br /><span class="h5">{{ (project | async)!.author }}</span></span>
+        </div>
+      </div>
+      <div class="row text-center">
+        <div class="col">
+          <span><b>Creation Date:</b><br /><span class="h5">{{ (project | async)!.creationDate | date:'short' }}</span></span>
+        </div>
+        <div class="col">
+          <span><b>Modified Date:</b><br /><span class="h5">{{ (project | async)!.modifiedDate | date:'short' }}</span></span>
+        </div>
+      </div>
+    </div>
+    <span class="col-12 text-center h5"><b>Assets Included In Project:</b></span>
+    <div class="col-12">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4">
+        <div class="col" *ngFor="let ProjectAsset of (project | async)!.assets.$values">
+          <span>{{ ProjectAsset.assetId }}</span> <!--Switch this section out with the assets, and format better-->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Raw Data viewer, for debugging purposes-->
+<!--<a class="dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Show Raw Data</a>
+<ul class="dropdown-menu">
+  <li><pre>{{ project | async | json }}</pre></li>
+</ul>-->

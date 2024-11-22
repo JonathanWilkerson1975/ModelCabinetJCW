@@ -10,10 +10,27 @@ import { Asset } from "./Models/asset";
 
 export class DataService {
   projects$: BehaviorSubject<Project[]> = new BehaviorSubject<Project[]>([]);
-  project$: BehaviorSubject<Project> = new BehaviorSubject<Project>({});
+  project$: BehaviorSubject<Project> = new BehaviorSubject<Project>({
+    projectId: 0,
+    name: '',
+    creationDate: new Date,
+    modifiedDate: new Date,
+    description: '',
+    author: '',
+    version: '',
+    assets: {$values:[]},
+    shortDescription: ''
+  });
 
   assets$: BehaviorSubject<Asset[]> = new BehaviorSubject<Asset[]>([]);
-  asset$: BehaviorSubject<Asset> = new BehaviorSubject<Asset>({});
+  asset$: BehaviorSubject<Asset> = new BehaviorSubject<Asset>({
+    assetId: 0,
+    name: '',
+    path: '',
+    dateCreation: new Date,
+    dateUpdated: new Date,
+    fileSize: 0
+  });
 
   constructor(private http: HttpClient) {
 

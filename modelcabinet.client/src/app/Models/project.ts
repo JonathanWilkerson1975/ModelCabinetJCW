@@ -5,14 +5,14 @@ export interface projectAsset {
 }
 export interface Project {
 
-  projectID: number,
-  name: String,
+  projectId: number,
+  name: string,
   creationDate: Date,
   modifiedDate: Date,
-  description: String,
-  author: String,
-  version: String,
+  description: string,
+  author: string,
+  version: string,
   assets: projectAsset,
-  shortDescription: String,
+  shortDescription: string,
 
 }
