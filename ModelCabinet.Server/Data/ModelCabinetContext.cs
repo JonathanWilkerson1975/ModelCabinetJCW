@@ -9,7 +9,7 @@ namespace ModelCabinet.Server.Data
 {
     public class ModelCabinetContext : DbContext
     {
-        public ModelCabinetContext (DbContextOptions<ModelCabinetContext> options) : base(options) { }
+        public ModelCabinetContext(DbContextOptions<ModelCabinetContext> options) : base(options) { }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
