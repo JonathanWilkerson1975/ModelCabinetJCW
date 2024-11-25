@@ -10,6 +10,7 @@ import { ProjectListPageComponent } from './projects/project-list-page/project-l
 import { ProjectDetailComponent } from './projects/project-detail/project-detail.component';
 import { ProjectPageComponent } from './projects/project-page/project-page.component';
 import { AboutProjectComponent } from './about-project/about-project.component';
+import { ChangelogComponent } from './changelog/changelog.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { AboutProjectComponent } from './about-project/about-project.component';
     ProjectDetailComponent,
     NavBarComponent,
     AboutProjectComponent,
+    ChangelogComponent,
   ],
   imports: [
     BrowserModule,
