@@ -12,6 +12,7 @@ import { ProjectDetailComponent } from './projects/project-detail/project-detail
 import { ProjectPageComponent } from './projects/project-page/project-page.component';
 import { AboutProjectComponent } from './about-project/about-project.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,6 +23,7 @@ import { AboutProjectComponent } from './about-project/about-project.component';
     NavBarComponent,
     ChangelogComponent,
     AboutProjectComponent,
+    ChangelogComponent,
   ],
   imports: [
     BrowserModule,

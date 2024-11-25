@@ -1,1 +1,23 @@
-<p>changelog works!</p>
+<div class="container text-center py-5">
+  <h1 class="display-4 fw-bold text-primary">Changelog</h1>
+  <p class="lead text-muted">Stay updated with the latest features, fixes, and improvements.</p>
+
+  <div class="accordion mt-4">
+    <div class="accordion-item" *ngFor="let entry of changelog; let i = index">
+      <h2 class="accordion-header">
+        <button class="accordion-button" [class.collapsed]="activeIndex !== i" (click)="toggleAccordion(i)">
+          Version {{ entry.version }} - {{ entry.date }}
+        </button>
+      </h2>
+      <div class="accordion-collapse collapse" [class.show]="activeIndex === i">
+        <div class="accordion-body text-start">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item" *ngFor="let change of entry.changes">
+              <strong>{{ change.type }}:</strong> {{ change.description }}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
