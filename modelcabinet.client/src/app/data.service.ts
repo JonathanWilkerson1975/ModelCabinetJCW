@@ -29,7 +29,8 @@ export class DataService {
     path: '',
     dateCreation: new Date,
     dateUpdated: new Date,
-    fileSize: 0
+    fileSize: 0,
+    projectId: 0,
   });
 
   constructor(private http: HttpClient) {

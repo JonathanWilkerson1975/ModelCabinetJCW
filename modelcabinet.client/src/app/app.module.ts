@@ -11,6 +11,8 @@ import { ProjectDetailComponent } from './projects/project-detail/project-detail
 import { ProjectPageComponent } from './projects/project-page/project-page.component';
 import { AboutProjectComponent } from './about-project/about-project.component';
 import { ChangelogComponent } from './changelog/changelog.component';
+import { AssetListComponent } from './asset/asset-list/asset-list.component';
+import { AssetDetailComponent } from './asset/asset-detail/asset-detail.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,8 @@ import { ChangelogComponent } from './changelog/changelog.component';
     NavBarComponent,
     AboutProjectComponent,
     ChangelogComponent,
+    AssetListComponent,
+    AssetDetailComponent
   ],
   imports: [
     BrowserModule,
