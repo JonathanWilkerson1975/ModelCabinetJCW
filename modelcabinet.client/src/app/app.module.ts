@@ -12,6 +12,10 @@ import { ProjectPageComponent } from './projects/project-page/project-page.compo
 import { AboutProjectComponent } from './about-project/about-project.component';
 import { ChangelogComponent } from './changelog/changelog.component';
 
+// Project Edit Component
+import { ProjectEditComponent } from './projects/project-edit/project-edit.component';
+import { ReactiveFormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,10 +26,12 @@ import { ChangelogComponent } from './changelog/changelog.component';
     NavBarComponent,
     AboutProjectComponent,
     ChangelogComponent,
+    ProjectEditComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule // For Project Edit Component
   ],
   providers: [provideHttpClient()], // Using this method rather than the module as the module is labeled as depricated
   bootstrap: [AppComponent]
