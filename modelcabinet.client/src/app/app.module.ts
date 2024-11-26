@@ -16,6 +16,8 @@ import { AboutProjectComponent } from './about-project/about-project.component';
 // Project Edit Component
 import { ProjectEditComponent } from './projects/project-edit/project-edit.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AssetListComponent } from './asset/asset-list/asset-list.component';
+import { AssetDetailComponent } from './asset/asset-detail/asset-detail.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     AboutProjectComponent,
     ChangelogComponent,
     ProjectEditComponent,
+    AssetListComponent,
+    AssetDetailComponent
   ],
   imports: [
     BrowserModule,

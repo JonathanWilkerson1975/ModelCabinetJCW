@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
+    <div class="col card" *ngFor="let Asset of (assets | async)">
+      <h1>
+        {{Asset.name}}
+      </h1>
+      <p>
+        Date Created: {{Asset.dateCreation | date:'short'}}
+      </p>
+      <p>
+        Date Updated: {{Asset.dateUpdated | date:'short'}}
+      </p>
+      <p>
+        File Size: {{ formatFileSize(Asset.fileSize) }}
+      </p>
+      <a class="btn btn-primary"routerLink="/Projects/{{Asset.projectId}}">
+        View Project
+      </a>
+    </div>
+  </div>
+</div>
+
+
+<a class="dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Show Raw Data</a>
+<ul class="dropdown-menu">
+  <li>
+    <pre>{{ assets | async | json }}</pre>
+  </li>
+</ul>

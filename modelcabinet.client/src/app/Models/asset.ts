@@ -4,5 +4,6 @@ export interface Asset {
   path: string,
   dateCreation: Date,
   dateUpdated: Date,
-  fileSize: number
+  fileSize: number, 
+  projectId: number
 }
