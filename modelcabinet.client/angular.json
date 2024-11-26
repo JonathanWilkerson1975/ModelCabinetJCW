@@ -40,7 +40,8 @@
             "styles": [
               "src/styles.css",
               "./node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+              "./node_modules/bootstrap-icons/font/bootstrap-icons.css"
+              
             ],
             "scripts": [
               "./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
@@ -103,16 +104,28 @@
               }
             ],
             "styles": [
-              "src/styles.css",
+              "src/styles.css"
             ],
             "scripts": [],
             "karmaConfig": "karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
           }
         }
       }
     }
   },
   "cli": {
-    "analytics": "5cc95333-2546-41cf-867c-00cca80dc9a9"
+    "analytics": "5cc95333-2546-41cf-867c-00cca80dc9a9",
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ]
   }
 }
