@@ -14,5 +14,6 @@ export interface Project {
   version: string,
   assets: projectAsset,
   shortDescription: string,
+  slug: string,
 
 }

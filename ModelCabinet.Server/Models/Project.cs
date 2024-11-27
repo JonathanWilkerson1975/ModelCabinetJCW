@@ -10,10 +10,8 @@
         public string Author { get; set; }
         public string Version { get; set; }
         public virtual List<Asset> Assets { get; set; }
-
-        //Maybe add at a later date
-        //public string Slug { get; set; }
-        public string shortDescription { get; set; }
+        public string Slug { get; set; }
+        public string ShortDescription { get; set; }
 
     }
 }
