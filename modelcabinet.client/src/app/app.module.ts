@@ -29,6 +29,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     AboutProjectComponent,
     ChangelogComponent,
     ProjectEditComponent,
+    AssetListComponent,
+    AssetDetailComponent,
   ],
   imports: [
     BrowserModule,
