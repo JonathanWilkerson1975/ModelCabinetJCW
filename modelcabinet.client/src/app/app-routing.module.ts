@@ -17,7 +17,7 @@ const routes: Routes = [
   { path: 'about-project', component: AboutProjectComponent },
   { path: 'changelog', component: ChangelogComponent },
   { path: `assets`, component: AssetListComponent },
-  { path: 'Help', component: HelpProjectComponent }
+  { path: 'Help', component: HelpProjectComponent },
   /* { path: 'User', component: UserPageComponent }*/
 ];
 
