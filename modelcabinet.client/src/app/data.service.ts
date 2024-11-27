@@ -1,6 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { BehaviorSubject } from "rxjs";
+import { BehaviorSubject, Observable, tap } from "rxjs";
 import { Project } from "./Models/project";
 import { Asset } from "./Models/asset";
 
@@ -54,6 +54,20 @@ export class DataService {
       this.project$.next(data);
       // this.assets$.next(data.asset.&values);
     });
+  }
+
+  // https://www.bacancytechnology.com/qanda/angular/difference-between-behaviorsubject-and-observable
+  // Modify this if needed, observables should be fine since this is being pulled at certain times and we don't
+  // need to grab the most up to date state
+
+  // chain together what's returned to what's gonna perform the size effects
+
+  // https://www.learnrxjs.io/learn-rxjs/operators/utility/do
+  // not modifying data so it'll be an exact copy of the original
+  getProjectInfoById(id: number): Observable<Project> {
+    return this.http.get<Project>(`/api/Projects/${id}`).pipe(
+      tap(data => this.project$.next(data))
+    );
   }
 
   updateProjectById(id: number, project: Project) {
