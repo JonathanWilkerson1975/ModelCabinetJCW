@@ -7,6 +7,7 @@ import { AboutProjectComponent } from './about-project/about-project.component';
 import { ChangelogComponent } from './changelog/changelog.component'
 import { HelpProjectComponent } from './Help-Page/Help-Page.component';
 import { AssetListComponent } from './asset/asset-list/asset-list.component';
+import { AssetDetailComponent } from './asset/asset-detail/asset-detail.component';
 
 // TODO: Change Names to actual Module Names
 const routes: Routes = [
@@ -17,7 +18,8 @@ const routes: Routes = [
   { path: 'about-project', component: AboutProjectComponent },
   { path: 'changelog', component: ChangelogComponent},
   { path: 'Help', component: HelpProjectComponent },
-  { path: 'assets', component: AssetListComponent }
+  { path: 'Assets', component: AssetListComponent },
+  { path: 'Assets/:id', component: AssetDetailComponent}
   /* { path: 'User', component: UserPageComponent }*/
 ];
 

@@ -1,1 +1,26 @@
-<p>asset-detail works!</p>
+
+<div>
+  <h1>{{(asset | async)!.name}}</h1>
+
+  <p>
+    Date Created: {{(asset | async)!.dateCreation | date:'short'}}
+  </p>
+  <p>
+    Date Updated: {{(asset | async)!.dateUpdated | date:'short'}}
+  </p>
+  <p>
+    File Size: {{ formatFileSize((asset | async)!.fileSize) }}
+  </p>
+  <a class="btn btn-primary" routerLink="/Projects/{{(asset | async)!.projectId}}">
+    View Project
+  </a>
+</div>
+
+
+
+<a class="dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Show Raw Data</a>
+<ul class="dropdown-menu">
+  <li>
+    <pre>{{ asset | async | json }}</pre>
+  </li>
+</ul>
