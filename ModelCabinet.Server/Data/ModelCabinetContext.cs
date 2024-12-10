@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 using ModelCabinet.Server.Models;
 
 namespace ModelCabinet.Server.Data
@@ -25,7 +26,8 @@ namespace ModelCabinet.Server.Data
                     Description = "Description",
                     Author = "Author",
                     Version = "0.0.1",
-                    shortDescription = "Desc"
+                    ShortDescription = "Desc",
+                    Slug = "nomen est omen",
                 },
                 new Project
                 {
@@ -36,7 +38,8 @@ namespace ModelCabinet.Server.Data
                     Description = "Description",
                     Author = "Author",
                     Version = "0.0.1",
-                    shortDescription = "Desc"
+                    ShortDescription = "Desc",
+                    Slug = "nomen est omen",
                 }
             );
 

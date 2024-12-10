@@ -6,12 +6,20 @@ import { AppComponent } from './app.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { provideHttpClient } from '@angular/common/http';
+import { ChangelogComponent } from './changelog/changelog.component';
 import { ProjectListPageComponent } from './projects/project-list-page/project-list-page.component';
 import { ProjectDetailComponent } from './projects/project-detail/project-detail.component';
 import { ProjectPageComponent } from './projects/project-page/project-page.component';
 import { AboutProjectComponent } from './about-project/about-project.component';
 import { ChangelogComponent } from './changelog/changelog.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
+
+
+// Project Edit Component
+import { ProjectEditComponent } from './projects/project-edit/project-edit.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AssetListComponent } from './asset/asset-list/asset-list.component';
+import { AssetDetailComponent } from './asset/asset-detail/asset-detail.component';
 
 @NgModule({
   declarations: [
@@ -21,13 +29,17 @@ import { ProfilePageComponent } from './profile-page/profile-page.component';
     ProjectListPageComponent,
     ProjectDetailComponent,
     NavBarComponent,
+    ChangelogComponent,
     AboutProjectComponent,
     ChangelogComponent,
-    ProfilePageComponent,
+    ProjectEditComponent,
+    AssetListComponent,
+    AssetDetailComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule // For Project Edit Component
   ],
   providers: [provideHttpClient()], // Using this method rather than the module as the module is labeled as depricated
   bootstrap: [AppComponent]
