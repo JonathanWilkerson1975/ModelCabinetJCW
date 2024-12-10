@@ -4,7 +4,8 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { ProjectListPageComponent } from './projects/project-list-page/project-list-page.component';
 import { ProjectPageComponent } from './projects/project-page/project-page.component';
 import { AboutProjectComponent } from './about-project/about-project.component';
-import { ChangelogComponent } from './changelog/changelog.component'
+import { ChangelogComponent } from './changelog/changelog.component';
+import { ProfilePageComponent } from './profile-page/profile-page.component';
 
 // TODO: Change Names to actual Module Names
 const routes: Routes = [
@@ -13,7 +14,8 @@ const routes: Routes = [
   { path: 'Projects', component: ProjectListPageComponent },
   { path: 'Projects/:id', component: ProjectPageComponent },
   { path: 'about-project', component: AboutProjectComponent },
-  { path: 'changelog', component: ChangelogComponent}
+  { path: 'changelog', component: ChangelogComponent },
+  { path: 'profile-page', component: ProfilePageComponent },
   // { path: 'Help', component: HelpPageComponent },
   // { path: 'User', component: UserPageComponent }
 ];
