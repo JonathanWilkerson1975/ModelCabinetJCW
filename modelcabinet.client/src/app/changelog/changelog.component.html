@@ -22,7 +22,10 @@
           <p class="card-text"><strong>Message:</strong> {{ commit.commit.message }}</p>
         </div>
         <div class="card-footer">
-          <a [href]="commit.url" target="_blank" class="btn btn-primary btn-sm">View Commit</a>
+          <a href="https://github.com/CCAppDevs/ModelCabinet/commit/{{commit.sha}}" target="_blank"
+            class="btn btn-primary btn-sm">
+            View Commit
+          </a>
         </div>
       </div>
     </div>
