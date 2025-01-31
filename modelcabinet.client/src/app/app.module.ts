@@ -29,6 +29,7 @@ import { AssetDetailComponent } from './asset/asset-detail/asset-detail.componen
     ProjectDetailComponent,
     NavBarComponent,
     ChangelogComponent,
+    ProfilePageComponent,
     AboutProjectComponent,
     ChangelogComponent,
     ProjectEditComponent,
