@@ -60,21 +60,21 @@ namespace ModelCabinet.Server.Migrations
                         new
                         {
                             AssetId = 1,
-                            DateCreation = new DateTime(2024, 11, 20, 12, 33, 26, 724, DateTimeKind.Local).AddTicks(9003),
-                            DateUpdated = new DateTime(2024, 11, 20, 12, 33, 26, 724, DateTimeKind.Local).AddTicks(9006),
+                            DateCreation = new DateTime(2024, 11, 21, 10, 49, 27, 236, DateTimeKind.Local).AddTicks(4158),
+                            DateUpdated = new DateTime(2024, 11, 21, 10, 49, 27, 236, DateTimeKind.Local).AddTicks(4162),
                             FileSize = 446684L,
                             Name = "Test Asset",
-                            Path = "C:\\Users\\jesse.harlan\\Desktop\\ModelCabinet\\ModelCabinet.Server\\bin\\Debug\\net8.0\\Assets\\TestProject\\HelloWorld.stl",
+                            Path = "C:\\Users\\kathy\\source\\repos\\ModelCabinet\\ModelCabinet.Server\\bin\\Debug\\net8.0\\Assets\\TestProject\\HelloWorld.stl",
                             ProjectId = 1
                         },
                         new
                         {
                             AssetId = 2,
-                            DateCreation = new DateTime(2024, 11, 20, 12, 33, 26, 724, DateTimeKind.Local).AddTicks(9013),
-                            DateUpdated = new DateTime(2024, 11, 20, 12, 33, 26, 724, DateTimeKind.Local).AddTicks(9015),
+                            DateCreation = new DateTime(2024, 11, 21, 10, 49, 27, 236, DateTimeKind.Local).AddTicks(4168),
+                            DateUpdated = new DateTime(2024, 11, 21, 10, 49, 27, 236, DateTimeKind.Local).AddTicks(4169),
                             FileSize = 11285384L,
                             Name = "Benchy",
-                            Path = "C:\\Users\\jesse.harlan\\Desktop\\ModelCabinet\\ModelCabinet.Server\\bin\\Debug\\net8.0\\Assets\\TestProject\\3DBenchy.stl",
+                            Path = "C:\\Users\\kathy\\source\\repos\\ModelCabinet\\ModelCabinet.Server\\bin\\Debug\\net8.0\\Assets\\TestProject\\3DBenchy.stl",
                             ProjectId = 1
                         });
                 });
@@ -122,9 +122,9 @@ namespace ModelCabinet.Server.Migrations
                         {
                             ProjectId = 1,
                             Author = "Author",
-                            CreationDate = new DateTime(2024, 11, 20, 12, 33, 26, 724, DateTimeKind.Local).AddTicks(8805),
+                            CreationDate = new DateTime(2024, 11, 21, 10, 49, 27, 236, DateTimeKind.Local).AddTicks(3958),
                             Description = "Description",
-                            ModifiedDate = new DateTime(2024, 11, 20, 12, 33, 26, 724, DateTimeKind.Local).AddTicks(8850),
+                            ModifiedDate = new DateTime(2024, 11, 21, 10, 49, 27, 236, DateTimeKind.Local).AddTicks(4014),
                             Name = "Test Project",
                             Version = "0.0.1",
                             shortDescription = "Desc"
@@ -133,9 +133,9 @@ namespace ModelCabinet.Server.Migrations
                         {
                             ProjectId = 2,
                             Author = "Author",
-                            CreationDate = new DateTime(2024, 11, 20, 12, 33, 26, 724, DateTimeKind.Local).AddTicks(8856),
+                            CreationDate = new DateTime(2024, 11, 21, 10, 49, 27, 236, DateTimeKind.Local).AddTicks(4019),
                             Description = "Description",
-                            ModifiedDate = new DateTime(2024, 11, 20, 12, 33, 26, 724, DateTimeKind.Local).AddTicks(8858),
+                            ModifiedDate = new DateTime(2024, 11, 21, 10, 49, 27, 236, DateTimeKind.Local).AddTicks(4020),
                             Name = "Test Project Two",
                             Version = "0.0.1",
                             shortDescription = "Desc"
