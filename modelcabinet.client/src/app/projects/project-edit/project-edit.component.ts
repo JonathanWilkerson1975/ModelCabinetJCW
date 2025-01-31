@@ -36,7 +36,8 @@ export class ProjectEditComponent implements OnInit {
     author: '',
     version: '',
     assets: { $values: [] },
-    shortDescription: ''
+    shortDescription: '',
+    slug: ''
   };
 
   constructor(

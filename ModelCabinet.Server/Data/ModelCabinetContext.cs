@@ -26,7 +26,8 @@ namespace ModelCabinet.Server.Data
                     Description = "Description",
                     Author = "Author",
                     Version = "0.0.1",
-                    shortDescription = "Desc"
+                    ShortDescription = "Desc",
+                    Slug = "nomen est omen",
                 },
                 new Project
                 {
@@ -37,7 +38,8 @@ namespace ModelCabinet.Server.Data
                     Description = "Description",
                     Author = "Author",
                     Version = "0.0.1",
-                    shortDescription = "Desc"
+                    ShortDescription = "Desc",
+                    Slug = "nomen est omen",
                 }
             );
 
