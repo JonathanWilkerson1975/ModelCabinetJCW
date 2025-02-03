@@ -18,11 +18,14 @@
       <div class="card h-100">
         <div class="card-body">
           <p class="card-text"><strong>Author:</strong> {{ commit.commit.author.name }}</p>
-          <p class="card-text"><strong>Date:</strong> {{ commit.commit.author.date }}</p>
+          <p class="card-text"><strong>Date:</strong> {{ commit.commit.author.date | date:'MMMM d, y h:mm a' }}</p>
           <p class="card-text"><strong>Message:</strong> {{ commit.commit.message }}</p>
         </div>
         <div class="card-footer">
-          <a [href]="commit.url" target="_blank" class="btn btn-primary btn-sm">View Commit</a>
+          <a href="https://github.com/CCAppDevs/ModelCabinet/commit/{{commit.sha}}" target="_blank"
+            class="btn btn-primary btn-sm">
+            View Commit
+          </a>
         </div>
       </div>
     </div>
