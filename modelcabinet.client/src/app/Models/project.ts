@@ -1,8 +1,5 @@
 import { Asset } from "./asset";
 
-export interface projectAsset {
-  $values: Asset[]
-}
 export interface Project {
 
   projectId: number,
@@ -12,7 +9,7 @@ export interface Project {
   description: string,
   author: string,
   version: string,
-  assets: projectAsset,
+  assets: Asset[],
   shortDescription: string,
   slug: string,
 

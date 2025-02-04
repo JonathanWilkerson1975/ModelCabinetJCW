@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, switchMap } from 'rxjs';
 import { Project } from '../../Models/project';
 import { DataService } from '../../data.service';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
@@ -15,19 +15,14 @@ export class ProjectPageComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private data: DataService, private router: Router) {
     this.project = this.data.project$;
-    this.router.events.subscribe(routerevent => {
-      if (routerevent instanceof NavigationEnd) {
-        this.getProjectData();
-      }
-    });
   }
 
   getProjectData(): void {
     this.route.paramMap.subscribe(data => {
       this.projid = +data.get('id')!;
+      this.data.getProjectById(this.projid);
+      console.log(this.project, this.projid);
     });
-    this.data.getProjectById(this.projid);
-    console.log(this.project, this.projid);
   }
 
   ngOnInit(): void {
