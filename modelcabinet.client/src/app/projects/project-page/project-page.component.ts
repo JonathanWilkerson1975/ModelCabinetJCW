@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { BehaviorSubject, switchMap } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { Project } from '../../Models/project';
 import { DataService } from '../../data.service';
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-project-page',
