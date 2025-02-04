@@ -30,6 +30,7 @@ import { ViewportComponent } from './viewport/viewport.component';
     ProjectDetailComponent,
     NavBarComponent,
     ChangelogComponent,
+    ProfilePageComponent,
     AboutProjectComponent,
     ChangelogComponent,
     ProjectEditComponent,
