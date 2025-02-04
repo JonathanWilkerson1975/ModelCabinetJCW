@@ -18,6 +18,7 @@ import { ProjectEditComponent } from './projects/project-edit/project-edit.compo
 import { ReactiveFormsModule } from '@angular/forms';
 import { AssetListComponent } from './asset/asset-list/asset-list.component';
 import { AssetDetailComponent } from './asset/asset-detail/asset-detail.component';
+import { ComingSoonComponent } from './coming-soon/coming-soon.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { AssetDetailComponent } from './asset/asset-detail/asset-detail.componen
     ChangelogComponent,
     ProjectEditComponent,
     AssetListComponent,
-    AssetDetailComponent
+    AssetDetailComponent,
+    ComingSoonComponent
   ],
   imports: [
     BrowserModule,
