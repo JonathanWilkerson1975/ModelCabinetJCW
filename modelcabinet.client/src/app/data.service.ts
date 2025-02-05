@@ -28,7 +28,7 @@ export class DataService {
     description: '',
     author: '',
     version: '',
-    assets: { $values: [] },
+    assets: [],
     shortDescription: '',
     slug: ''
   });

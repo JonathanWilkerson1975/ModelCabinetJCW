@@ -7,7 +7,6 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { provideHttpClient } from '@angular/common/http';
 import { ProjectListPageComponent } from './projects/project-list-page/project-list-page.component';
-import { ProjectDetailComponent } from './projects/project-detail/project-detail.component';
 import { ProjectPageComponent } from './projects/project-page/project-page.component';
 import { AboutProjectComponent } from './about-project/about-project.component';
 import { ChangelogComponent } from './changelog/changelog.component';
@@ -26,9 +25,10 @@ import { AssetDetailComponent } from './asset/asset-detail/asset-detail.componen
     LandingPageComponent,
     ProjectPageComponent,
     ProjectListPageComponent,
-    ProjectDetailComponent,
+    ProfilePageComponent,
     NavBarComponent,
     ChangelogComponent,
+    ProfilePageComponent,
     AboutProjectComponent,
     ChangelogComponent,
     ProjectEditComponent,
