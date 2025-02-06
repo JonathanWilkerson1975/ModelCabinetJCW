@@ -54,7 +54,7 @@ namespace ModelCabinet.Server.Migrations
 
                     b.HasIndex("ProjectId");
 
-                    b.ToTable("Asset");
+                    b.ToTable("Asset", (string)null);
 
                     b.HasData(
                         new
@@ -119,7 +119,7 @@ namespace ModelCabinet.Server.Migrations
 
                     b.HasKey("ProjectId");
 
-                    b.ToTable("Project");
+                    b.ToTable("Project", (string)null);
 
                     b.HasData(
                         new
