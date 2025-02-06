@@ -69,6 +69,7 @@ namespace ModelCabinet.Server.Data
                 }
             );
 
+
             // auto load any navigation properties using this pattern
             modelBuilder.Entity<Project>().Navigation(p => p.Assets).AutoInclude();
         }

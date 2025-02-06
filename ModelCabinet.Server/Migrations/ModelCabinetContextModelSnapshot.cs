@@ -54,27 +54,27 @@ namespace ModelCabinet.Server.Migrations
 
                     b.HasIndex("ProjectId");
 
-                    b.ToTable("Asset", (string)null);
+                    b.ToTable("Asset");
 
                     b.HasData(
                         new
                         {
                             AssetId = 1,
-                            DateCreation = new DateTime(2025, 2, 6, 12, 29, 14, 314, DateTimeKind.Local).AddTicks(7342),
-                            DateUpdated = new DateTime(2025, 2, 6, 12, 29, 14, 314, DateTimeKind.Local).AddTicks(7347),
+                            DateCreation = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateUpdated = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FileSize = 446684L,
                             Name = "Test Asset",
-                            Path = "C:\\Users\\gaski\\source\\repos\\ModelCabinet\\ModelCabinet.Server\\bin\\Debug\\net8.0\\Assets\\TestProject\\HelloWorld.stl",
+                            Path = "D:\\School\\BAS\\ModelCabinetProject\\ModelCabinet\\ModelCabinet.Server\\bin\\Debug\\net8.0\\Assets\\TestProject\\HelloWorld.stl",
                             ProjectId = 1
                         },
                         new
                         {
                             AssetId = 2,
-                            DateCreation = new DateTime(2025, 2, 6, 12, 29, 14, 314, DateTimeKind.Local).AddTicks(7354),
-                            DateUpdated = new DateTime(2025, 2, 6, 12, 29, 14, 314, DateTimeKind.Local).AddTicks(7356),
+                            DateCreation = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateUpdated = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FileSize = 11285384L,
                             Name = "Benchy",
-                            Path = "C:\\Users\\gaski\\source\\repos\\ModelCabinet\\ModelCabinet.Server\\bin\\Debug\\net8.0\\Assets\\TestProject\\3DBenchy.stl",
+                            Path = "D:\\School\\BAS\\ModelCabinetProject\\ModelCabinet\\ModelCabinet.Server\\bin\\Debug\\net8.0\\Assets\\TestProject\\3DBenchy.stl",
                             ProjectId = 1
                         });
                 });
@@ -119,16 +119,16 @@ namespace ModelCabinet.Server.Migrations
 
                     b.HasKey("ProjectId");
 
-                    b.ToTable("Project", (string)null);
+                    b.ToTable("Project");
 
                     b.HasData(
                         new
                         {
                             ProjectId = 1,
                             Author = "Author",
-                            CreationDate = new DateTime(2025, 2, 6, 12, 29, 14, 314, DateTimeKind.Local).AddTicks(7022),
+                            CreationDate = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Description",
-                            ModifiedDate = new DateTime(2025, 2, 6, 12, 29, 14, 314, DateTimeKind.Local).AddTicks(7069),
+                            ModifiedDate = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Test Project",
                             ShortDescription = "Desc",
                             Slug = "nomen-est-omen",
@@ -138,12 +138,12 @@ namespace ModelCabinet.Server.Migrations
                         {
                             ProjectId = 2,
                             Author = "Author",
-                            CreationDate = new DateTime(2025, 2, 6, 12, 29, 14, 314, DateTimeKind.Local).AddTicks(7074),
+                            CreationDate = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Description",
-                            ModifiedDate = new DateTime(2025, 2, 6, 12, 29, 14, 314, DateTimeKind.Local).AddTicks(7075),
+                            ModifiedDate = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Test Project Two",
                             ShortDescription = "Desc",
-                            Slug = "this is not good",
+                            Slug = "nomen-est-bonum",
                             Version = "0.0.1"
                         });
                 });
