@@ -6,6 +6,9 @@
 Logs/
 
 # Generated files
+node_modules/
+package.json
+package-lock.json
 project.lock.json
 .vs/
 

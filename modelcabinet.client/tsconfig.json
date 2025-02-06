@@ -24,6 +24,9 @@
       "dom"
     ]
   },
+  "parserOptions": {
+    "tsconfigRootDir": "./",
+  },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
