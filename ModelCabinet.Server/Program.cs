@@ -30,6 +30,7 @@ namespace ModelCabinet.Server
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
+            // toast
 
             app.UseHttpsRedirection();
 
