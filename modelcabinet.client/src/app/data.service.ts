@@ -40,14 +40,14 @@ export class DataService {
     path: '',
     dateCreation: new Date,
     dateUpdated: new Date,
-    fileSize: 0
+    fileSize: 0,
+    projectId: 0
   });
-
-  constructor(private http: HttpClient) {
 
   // Pagination state management
   totalPages$: BehaviorSubject<number> = new BehaviorSubject<number>(1);
   currentPage$: BehaviorSubject<number> = new BehaviorSubject<number>(1);
+
   constructor(private http: HttpClient) {}
 
   createProject(project: Project) {
