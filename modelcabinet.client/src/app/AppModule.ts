@@ -15,6 +15,7 @@ import { ProfilePageComponent } from "./profile-page/profile-page.component";
 import { ProjectEditComponent } from "./projects/project-edit/project-edit.component";
 import { ProjectListPageComponent } from "./projects/project-list-page/project-list-page.component";
 import { ProjectPageComponent } from "./projects/project-page/project-page.component";
+import { ContributorsComponent } from "./components/contributors/contributors.component";
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { ProjectPageComponent } from "./projects/project-page/project-page.compo
         ProjectEditComponent,
         AssetListComponent,
         AssetDetailComponent,
-        DeveloperCardComponent
+        DeveloperCardComponent,
+        ContributorsComponent
     ],
     imports: [
         BrowserModule,
