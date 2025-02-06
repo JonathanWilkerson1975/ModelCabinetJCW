@@ -18,9 +18,9 @@ export class DataService {
     description: '',
     author: '',
     version: '',
-    assets: {$values:[]},
-    shortDescription: ''
-
+    assets: [],
+    shortDescription: '',
+    slug: ''
   });
 
   assets$: BehaviorSubject<Asset[]> = new BehaviorSubject<Asset[]>([]);
