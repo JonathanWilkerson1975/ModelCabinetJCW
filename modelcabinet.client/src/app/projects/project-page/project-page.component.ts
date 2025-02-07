@@ -24,19 +24,6 @@ export class ProjectPageComponent implements OnInit {
   }
 
   saveAsset() {
-    //if (!this.selectedAsset) return;
-
-    //const updatedAsset = { ...this.selectedAsset, dateUpdated: new Date() };
-
-    //this.http.put(`${this.apiUrl}/${updatedAsset.assetId}`, updatedAsset).subscribe(
-    //  (response) => {
-    //    console.log('Asset updated:', response);
-    //    // Update the correct asset in the list
-    //  },
-    //  (error) => {
-    //    console.error('Error updating asset:', error);
-    //  }
-    //);
       if (!this.selectedAsset || !this.project.value) return;
 
       const updatedAsset = { ...this.selectedAsset, dateUpdated: new Date() };
