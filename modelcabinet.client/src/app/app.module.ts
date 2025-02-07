@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms'; // clarissa
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -38,6 +39,7 @@ import { AssetDetailComponent } from './asset/asset-detail/asset-detail.componen
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule, // I added this for the asset edit form modal - Clarissa
     ReactiveFormsModule // For Project Edit Component
   ],
   providers: [provideHttpClient()], // Using this method rather than the module as the module is labeled as depricated
