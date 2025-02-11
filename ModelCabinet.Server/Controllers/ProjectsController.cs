@@ -32,7 +32,7 @@ namespace ModelCabinet.Server.Controllers
             var totalPages = (int)Math.Ceiling((double)totalProjects / pageSize);
 
             var projects = await _context.Project
-                .OrderByDescending(p => p.ModifiedDate) // Most recent first
+                .OrderBy(p => p.ProjectId) // Ascending by ProjectId
                 .Skip((page - 1) * pageSize)
                 .Take(pageSize)
                 .ToListAsync();

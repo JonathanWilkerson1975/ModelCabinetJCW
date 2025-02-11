@@ -16,14 +16,16 @@ namespace ModelCabinet.Server.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-
+            
+            // value can be anything
+            DateTime dateTime = new DateTime(2024, 01, 01);
             modelBuilder.Entity<Project>().HasData(
                 new Project
                 {
                     ProjectId = 1,
                     Name = "Test Project",
-                    CreationDate = DateTime.Now,
-                    ModifiedDate = DateTime.Now,
+                    CreationDate = dateTime,
+                    ModifiedDate = dateTime,
                     Description = "Description",
                     Author = "Author",
                     Version = "0.0.1",
@@ -34,8 +36,8 @@ namespace ModelCabinet.Server.Data
                 {
                     ProjectId = 2,
                     Name = "Test Project Two",
-                    CreationDate = DateTime.Now,
-                    ModifiedDate = DateTime.Now,
+                    CreationDate = dateTime,
+                    ModifiedDate = dateTime,
                     Description = "Description",
                     Author = "Author",
                     Version = "0.0.1",
@@ -66,6 +68,7 @@ namespace ModelCabinet.Server.Data
                     ProjectId = 1
                 }
             );
+
 
             // auto load any navigation properties using this pattern
             modelBuilder.Entity<Project>().Navigation(p => p.Assets).AutoInclude();
