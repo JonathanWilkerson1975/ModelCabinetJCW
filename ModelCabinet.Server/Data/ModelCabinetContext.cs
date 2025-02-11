@@ -16,8 +16,6 @@ namespace ModelCabinet.Server.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            
-            // value can be anything
             DateTime dateTime = new DateTime(2024, 01, 01);
             modelBuilder.Entity<Project>().HasData(
                 new Project
