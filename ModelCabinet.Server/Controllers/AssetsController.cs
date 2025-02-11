@@ -67,7 +67,7 @@ namespace ModelCabinet.Server.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutAsset(int id, Asset asset)
         {
-            AddCorsHeaders(); 
+            AddCorsHeaders();
 
             if (id != asset.AssetId)
             {
