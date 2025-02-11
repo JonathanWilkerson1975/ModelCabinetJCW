@@ -28,7 +28,7 @@
     <div class="col-12">
       <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4">
         <div class="col" *ngFor="let asset of (project | async)!.assets">
-          <app-asset-detail></app-asset-detail>
+          <app-asset-detail [asset]="asset"></app-asset-detail>
         </div>
       </div>
     </div>
