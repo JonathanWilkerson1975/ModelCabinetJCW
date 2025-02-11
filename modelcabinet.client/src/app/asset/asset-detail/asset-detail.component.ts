@@ -1,8 +1,7 @@
-import { Component, Input, Output, EventEmitter} from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Asset } from '../../Models/asset';
 import { DataService } from '../../data.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-asset-detail',
