@@ -51,9 +51,9 @@ namespace ModelCabinet.Server.Data
                 {
                     AssetId = 1,
                     Name = "Test Asset",
-                    Path = Path.Combine(AppContext.BaseDirectory, "Assets", "TestProject", "HelloWorld.stl"),
-                    DateCreation = dateTime,
-                    DateUpdated = dateTime,
+                    Path = Path.Combine("Assets", "TestProject", "HelloWorld.stl"),
+                    DateCreation = DateTime.Now,
+                    DateUpdated = DateTime.Now,
                     FileSize = 446684,
                     ProjectId = 1
                 },
@@ -61,9 +61,9 @@ namespace ModelCabinet.Server.Data
                 {
                     AssetId = 2,
                     Name = "Benchy",
-                    Path = Path.Combine(AppContext.BaseDirectory, "Assets", "TestProject", "3DBenchy.stl"),
-                    DateCreation = dateTime,
-                    DateUpdated = dateTime,
+                    Path = Path.Combine("Assets", "TestProject", "3DBenchy.stl"),
+                    DateCreation = DateTime.Now,
+                    DateUpdated = DateTime.Now,
                     FileSize = 11285384,
                     ProjectId = 1
                 }
