@@ -30,9 +30,6 @@ namespace ModelCabinet.Server.Controllers
             return await _context.Asset.ToListAsync();
         }
 
-
-
-
         // GET: api/Assets/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Asset>> GetAsset(int id)
