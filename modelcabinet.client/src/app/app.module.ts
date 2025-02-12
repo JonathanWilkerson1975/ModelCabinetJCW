@@ -19,31 +19,31 @@ import { ComingSoonComponent } from './coming-soon/coming-soon.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-    declarations: [
-        AppComponent,
-        LandingPageComponent,
-        ProjectPageComponent,
-        ProjectListPageComponent,
-        ProfilePageComponent,
-        NavBarComponent,
-        ChangelogComponent,
-        ProfilePageComponent,
-        AboutProjectComponent,
-        ChangelogComponent,
-        ProjectEditComponent,
-        AssetListComponent,
-        AssetDetailComponent,
-        ComingSoonComponent,
-        DeveloperCardComponent,
-        ContributorsComponent
-    ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        ReactiveFormsModule // For Project Edit Component
-    ],
-    providers: [provideHttpClient()], // Using this method rather than the module as the module is labeled as depricated
-    bootstrap: [AppComponent]
+  declarations: [
+      AppComponent,
+      LandingPageComponent,
+      ProjectPageComponent,
+      ProjectListPageComponent,
+      ProfilePageComponent,
+      NavBarComponent,
+      ChangelogComponent,
+      ProfilePageComponent,
+      AboutProjectComponent,
+      ChangelogComponent,
+      ProjectEditComponent,
+      AssetListComponent,
+      AssetDetailComponent,
+      ComingSoonComponent,
+      DeveloperCardComponent,
+      ContributorsComponent
+  ],
+  imports: [
+      BrowserModule,
+      AppRoutingModule,
+      ReactiveFormsModule // For Project Edit Component
+  ],
+  providers: [provideHttpClient()], // Using this method rather than the module as the module is labeled as depricated
+  bootstrap: [AppComponent]
 })
 export class AppModule {
 }
