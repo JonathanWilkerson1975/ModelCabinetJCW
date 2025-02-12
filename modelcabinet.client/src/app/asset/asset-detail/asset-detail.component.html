@@ -9,7 +9,7 @@
     Date Updated: {{asset.dateUpdated | date:'short'}}
   </p>
   <p>
-    File Size: {{ formatFileSize(asset.fileSize) }}
+    File Size: {{ asset.fileSize | fileSize }}
   </p>
   <a class="btn btn-primary" routerLink="/Projects/{{asset.projectId}}">
     View Project
