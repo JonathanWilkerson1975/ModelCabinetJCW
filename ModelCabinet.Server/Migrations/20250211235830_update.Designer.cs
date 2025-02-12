@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ModelCabinet.Server.Data;
 
@@ -11,9 +12,11 @@ using ModelCabinet.Server.Data;
 namespace ModelCabinet.Server.Migrations
 {
     [DbContext(typeof(ModelCabinetContext))]
-    partial class ModelCabinetContextModelSnapshot : ModelSnapshot
+    [Migration("20250211235830_update")]
+    partial class update
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -60,21 +63,21 @@ namespace ModelCabinet.Server.Migrations
                         new
                         {
                             AssetId = 1,
-                            DateCreation = new DateTime(2025, 2, 11, 13, 51, 27, 863, DateTimeKind.Local).AddTicks(4318),
-                            DateUpdated = new DateTime(2025, 2, 11, 13, 51, 27, 863, DateTimeKind.Local).AddTicks(4367),
+                            DateCreation = new DateTime(2025, 2, 11, 15, 58, 29, 235, DateTimeKind.Local).AddTicks(618),
+                            DateUpdated = new DateTime(2025, 2, 11, 15, 58, 29, 235, DateTimeKind.Local).AddTicks(621),
                             FileSize = 446684L,
                             Name = "Test Asset",
-                            Path = "Assets\\TestProject\\HelloWorld.stl",
+                            Path = "C:\\Users\\Willi\\OneDrive\\Desktop\\College Work\\I T\\Project for Bachelor's\\Original\\ModelCabinet\\ModelCabinet.Server\\bin\\Debug\\net8.0\\Assets\\TestProject\\HelloWorld.stl",
                             ProjectId = 1
                         },
                         new
                         {
                             AssetId = 2,
-                            DateCreation = new DateTime(2025, 2, 11, 13, 51, 27, 863, DateTimeKind.Local).AddTicks(4371),
-                            DateUpdated = new DateTime(2025, 2, 11, 13, 51, 27, 863, DateTimeKind.Local).AddTicks(4373),
+                            DateCreation = new DateTime(2025, 2, 11, 15, 58, 29, 235, DateTimeKind.Local).AddTicks(632),
+                            DateUpdated = new DateTime(2025, 2, 11, 15, 58, 29, 235, DateTimeKind.Local).AddTicks(635),
                             FileSize = 11285384L,
                             Name = "Benchy",
-                            Path = "Assets\\TestProject\\3DBenchy.stl",
+                            Path = "C:\\Users\\Willi\\OneDrive\\Desktop\\College Work\\I T\\Project for Bachelor's\\Original\\ModelCabinet\\ModelCabinet.Server\\bin\\Debug\\net8.0\\Assets\\TestProject\\3DBenchy.stl",
                             ProjectId = 1
                         });
                 });
@@ -111,16 +114,13 @@ namespace ModelCabinet.Server.Migrations
 
                     b.Property<string>("Slug")
                         .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Version")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ProjectId");
-
-                    b.HasIndex("Slug")
-                        .IsUnique();
 
                     b.ToTable("Project");
 
@@ -129,9 +129,9 @@ namespace ModelCabinet.Server.Migrations
                         {
                             ProjectId = 1,
                             Author = "Author",
-                            CreationDate = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreationDate = new DateTime(2025, 2, 11, 15, 58, 29, 235, DateTimeKind.Local).AddTicks(271),
                             Description = "Description",
-                            ModifiedDate = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ModifiedDate = new DateTime(2025, 2, 11, 15, 58, 29, 235, DateTimeKind.Local).AddTicks(349),
                             Name = "Test Project",
                             ShortDescription = "Desc",
                             Slug = "nomen-est-omen",
@@ -141,9 +141,9 @@ namespace ModelCabinet.Server.Migrations
                         {
                             ProjectId = 2,
                             Author = "Author",
-                            CreationDate = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreationDate = new DateTime(2025, 2, 11, 15, 58, 29, 235, DateTimeKind.Local).AddTicks(358),
                             Description = "Description",
-                            ModifiedDate = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ModifiedDate = new DateTime(2025, 2, 11, 15, 58, 29, 235, DateTimeKind.Local).AddTicks(361),
                             Name = "Test Project Two",
                             ShortDescription = "Desc",
                             Slug = "nomen-est-bonum",
