@@ -19,8 +19,6 @@ import { ComingSoonComponent } from './coming-soon/coming-soon.component';
 import { ReactiveFormsModule } from "@angular/forms";
 import { FileSizePipe } from "./Pipes/file-size.pipe";
 
-
-
 @NgModule({
     declarations: [
         AppComponent,
