@@ -2,7 +2,6 @@
 import { provideHttpClient } from "@angular/common/http";
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
-import { AboutProjectComponent } from "./about-project/about-project.component";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { AssetDetailComponent } from "./asset/asset-detail/asset-detail.component";
@@ -18,7 +17,11 @@ import { ProjectPageComponent } from "./projects/project-page/project-page.compo
 import { ContributorsComponent } from "./components/contributors/contributors.component";
 import { ComingSoonComponent } from './coming-soon/coming-soon.component';
 import { ReactiveFormsModule } from '@angular/forms';
+<<<<<<< HEAD
 import { FileSizePipe } from "./Pipes/file-size.pipe";
+=======
+import { AboutModelCabinetComponent } from "./About-ModelCabinet/About-ModelCabinet.component";
+>>>>>>> 77fa7d0 (Renamed About-ModelCabinet component and updated references)
 
 @NgModule({
   declarations: [
@@ -30,7 +33,7 @@ import { FileSizePipe } from "./Pipes/file-size.pipe";
     NavBarComponent,
     ChangelogComponent,
     ProfilePageComponent,
-    AboutProjectComponent,
+    AboutModelCabinetComponent,
     ChangelogComponent,
     ProjectEditComponent,
     AssetListComponent,
