@@ -1,10 +1,10 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'fileSize',
-  pure: false
+  name: 'fileSize'
 })
 export class FileSizePipe implements PipeTransform {
+
   transform(filesize: number): string {
     const byteSizes: number[] = [1000000000000000, 1000000000000, 1000000000, 1000000, 1000];
     //PB
@@ -27,4 +27,5 @@ export class FileSizePipe implements PipeTransform {
       return `${filesize} B`;
     }
   }
+
 }

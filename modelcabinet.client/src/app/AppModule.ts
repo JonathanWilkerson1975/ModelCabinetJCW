@@ -16,6 +16,7 @@ import { ProjectEditComponent } from "./projects/project-edit/project-edit.compo
 import { ProjectListPageComponent } from "./projects/project-list-page/project-list-page.component";
 import { ProjectPageComponent } from "./projects/project-page/project-page.component";
 import { ContributorsComponent } from "./components/contributors/contributors.component";
+import { FileSizePipe } from "./Pipes/file-size.pipe";
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { ContributorsComponent } from "./components/contributors/contributors.co
         AssetListComponent,
         AssetDetailComponent,
         DeveloperCardComponent,
-        ContributorsComponent
+        ContributorsComponent,
+        FileSizePipe
     ],
     imports: [
         BrowserModule,
