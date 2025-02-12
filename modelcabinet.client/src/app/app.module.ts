@@ -1,3 +1,4 @@
+
 import { provideHttpClient } from "@angular/common/http";
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
@@ -20,22 +21,22 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-      AppComponent,
-      LandingPageComponent,
-      ProjectPageComponent,
-      ProjectListPageComponent,
-      ProfilePageComponent,
-      NavBarComponent,
-      ChangelogComponent,
-      ProfilePageComponent,
-      AboutProjectComponent,
-      ChangelogComponent,
-      ProjectEditComponent,
-      AssetListComponent,
-      AssetDetailComponent,
-      ComingSoonComponent,
-      DeveloperCardComponent,
-      ContributorsComponent
+    AppComponent,
+    LandingPageComponent,
+    ProjectPageComponent,
+    ProjectListPageComponent,
+    ProfilePageComponent,
+    NavBarComponent,
+    ChangelogComponent,
+    ProfilePageComponent,
+    AboutProjectComponent,
+    ChangelogComponent,
+    ProjectEditComponent,
+    AssetListComponent,
+    AssetDetailComponent,
+    ComingSoonComponent,
+    DeveloperCardComponent,
+    ContributorsComponent
   ],
   imports: [
       BrowserModule,
