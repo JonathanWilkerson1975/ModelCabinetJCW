@@ -16,6 +16,8 @@ namespace ModelCabinet.Server.Models
         [RegularExpression("^[^\\s]+$")]
         public string Slug { get; set; }
         public string ShortDescription { get; set; }
+        //Navigation
+        public ICollection<ProjectTag> ProjectTags { get; set; }
 
     }
 }
