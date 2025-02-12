@@ -1,6 +1,5 @@
-import { HttpClientModule, provideHttpClient } from "@angular/common/http";
+import { provideHttpClient } from "@angular/common/http";
 import { NgModule } from "@angular/core";
-import { ReactiveFormsModule } from "@angular/forms";
 import { BrowserModule } from "@angular/platform-browser";
 import { AboutProjectComponent } from "./about-project/about-project.component";
 import { AppRoutingModule } from "./app-routing.module";
@@ -16,7 +15,10 @@ import { ProjectEditComponent } from "./projects/project-edit/project-edit.compo
 import { ProjectListPageComponent } from "./projects/project-list-page/project-list-page.component";
 import { ProjectPageComponent } from "./projects/project-page/project-page.component";
 import { ContributorsComponent } from "./components/contributors/contributors.component";
+import { ComingSoonComponent } from './coming-soon/coming-soon.component';
+import { ReactiveFormsModule } from "@angular/forms";
 import { FileSizePipe } from "./Pipes/file-size.pipe";
+
 
 
 @NgModule({
@@ -34,6 +36,7 @@ import { FileSizePipe } from "./Pipes/file-size.pipe";
         ProjectEditComponent,
         AssetListComponent,
         AssetDetailComponent,
+        ComingSoonComponent,
         DeveloperCardComponent,
         ContributorsComponent,
         FileSizePipe
@@ -41,8 +44,7 @@ import { FileSizePipe } from "./Pipes/file-size.pipe";
     imports: [
         BrowserModule,
         AppRoutingModule,
-        ReactiveFormsModule, // For Project Edit Component
-        HttpClientModule
+        ReactiveFormsModule // For Project Edit Component
     ],
     providers: [provideHttpClient()], // Using this method rather than the module as the module is labeled as depricated
     bootstrap: [AppComponent]
