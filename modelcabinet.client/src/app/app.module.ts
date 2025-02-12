@@ -16,7 +16,7 @@ import { ProjectListPageComponent } from "./projects/project-list-page/project-l
 import { ProjectPageComponent } from "./projects/project-page/project-page.component";
 import { ContributorsComponent } from "./components/contributors/contributors.component";
 import { ComingSoonComponent } from './coming-soon/coming-soon.component';
-import { ReactiveFormsModule } from "@angular/forms";
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [
