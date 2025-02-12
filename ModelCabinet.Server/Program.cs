@@ -19,8 +19,6 @@ namespace ModelCabinet.Server
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
-            builder.Services.AddHttpContextAccessor(); // clarissa. needed this for dep. injection 
-
             var app = builder.Build();
 
             app.UseDefaultFiles();
