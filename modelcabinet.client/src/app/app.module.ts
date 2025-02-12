@@ -18,6 +18,7 @@ import { ProjectPageComponent } from "./projects/project-page/project-page.compo
 import { ContributorsComponent } from "./components/contributors/contributors.component";
 import { ComingSoonComponent } from './coming-soon/coming-soon.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FileSizePipe } from "./Pipes/file-size.pipe";
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     AssetDetailComponent,
     ComingSoonComponent,
     DeveloperCardComponent,
-    ContributorsComponent
+    ContributorsComponent,
+    FileSizePipe
   ],
   imports: [
       BrowserModule,
