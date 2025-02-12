@@ -60,21 +60,21 @@ namespace ModelCabinet.Server.Migrations
                         new
                         {
                             AssetId = 1,
-                            DateCreation = new DateTime(2025, 2, 11, 15, 58, 29, 235, DateTimeKind.Local).AddTicks(618),
-                            DateUpdated = new DateTime(2025, 2, 11, 15, 58, 29, 235, DateTimeKind.Local).AddTicks(621),
+                            DateCreation = new DateTime(2025, 2, 6, 13, 58, 5, 872, DateTimeKind.Local).AddTicks(986),
+                            DateUpdated = new DateTime(2025, 2, 6, 13, 58, 5, 872, DateTimeKind.Local).AddTicks(989),
                             FileSize = 446684L,
                             Name = "Test Asset",
-                            Path = "C:\\Users\\Willi\\OneDrive\\Desktop\\College Work\\I T\\Project for Bachelor's\\Original\\ModelCabinet\\ModelCabinet.Server\\bin\\Debug\\net8.0\\Assets\\TestProject\\HelloWorld.stl",
+                            Path = "Assets\\TestProject\\HelloWorld.stl",
                             ProjectId = 1
                         },
                         new
                         {
                             AssetId = 2,
-                            DateCreation = new DateTime(2025, 2, 11, 15, 58, 29, 235, DateTimeKind.Local).AddTicks(632),
-                            DateUpdated = new DateTime(2025, 2, 11, 15, 58, 29, 235, DateTimeKind.Local).AddTicks(635),
+                            DateCreation = new DateTime(2025, 2, 6, 13, 58, 5, 872, DateTimeKind.Local).AddTicks(992),
+                            DateUpdated = new DateTime(2025, 2, 6, 13, 58, 5, 872, DateTimeKind.Local).AddTicks(994),
                             FileSize = 11285384L,
                             Name = "Benchy",
-                            Path = "C:\\Users\\Willi\\OneDrive\\Desktop\\College Work\\I T\\Project for Bachelor's\\Original\\ModelCabinet\\ModelCabinet.Server\\bin\\Debug\\net8.0\\Assets\\TestProject\\3DBenchy.stl",
+                            Path = "Assets\\TestProject\\3DBenchy.stl",
                             ProjectId = 1
                         });
                 });
@@ -126,9 +126,9 @@ namespace ModelCabinet.Server.Migrations
                         {
                             ProjectId = 1,
                             Author = "Author",
-                            CreationDate = new DateTime(2025, 2, 11, 15, 58, 29, 235, DateTimeKind.Local).AddTicks(271),
+                            CreationDate = new DateTime(2025, 2, 6, 13, 58, 5, 872, DateTimeKind.Local).AddTicks(791),
                             Description = "Description",
-                            ModifiedDate = new DateTime(2025, 2, 11, 15, 58, 29, 235, DateTimeKind.Local).AddTicks(349),
+                            ModifiedDate = new DateTime(2025, 2, 6, 13, 58, 5, 872, DateTimeKind.Local).AddTicks(835),
                             Name = "Test Project",
                             ShortDescription = "Desc",
                             Slug = "nomen-est-omen",
@@ -138,9 +138,9 @@ namespace ModelCabinet.Server.Migrations
                         {
                             ProjectId = 2,
                             Author = "Author",
-                            CreationDate = new DateTime(2025, 2, 11, 15, 58, 29, 235, DateTimeKind.Local).AddTicks(358),
+                            CreationDate = new DateTime(2025, 2, 6, 13, 58, 5, 872, DateTimeKind.Local).AddTicks(839),
                             Description = "Description",
-                            ModifiedDate = new DateTime(2025, 2, 11, 15, 58, 29, 235, DateTimeKind.Local).AddTicks(361),
+                            ModifiedDate = new DateTime(2025, 2, 6, 13, 58, 5, 872, DateTimeKind.Local).AddTicks(840),
                             Name = "Test Project Two",
                             ShortDescription = "Desc",
                             Slug = "nomen-est-bonum",
