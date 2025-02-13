@@ -17,11 +17,8 @@ import { ProjectPageComponent } from "./projects/project-page/project-page.compo
 import { ContributorsComponent } from "./components/contributors/contributors.component";
 import { ComingSoonComponent } from './coming-soon/coming-soon.component';
 import { ReactiveFormsModule } from '@angular/forms';
-<<<<<<< HEAD
 import { FileSizePipe } from "./Pipes/file-size.pipe";
-=======
 import { AboutModelCabinetComponent } from "./About-ModelCabinet/About-ModelCabinet.component";
->>>>>>> 77fa7d0 (Renamed About-ModelCabinet component and updated references)
 
 @NgModule({
   declarations: [
