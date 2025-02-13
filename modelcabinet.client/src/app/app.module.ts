@@ -18,6 +18,7 @@ import { ProjectPageComponent } from "./projects/project-page/project-page.compo
 import { ContributorsComponent } from "./components/contributors/contributors.component";
 import { ComingSoonComponent } from './coming-soon/coming-soon.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { TagLabelComponent } from './tag-label/tag-label.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     AssetDetailComponent,
     ComingSoonComponent,
     DeveloperCardComponent,
-    ContributorsComponent
+    ContributorsComponent,
+    TagLabelComponent
   ],
   imports: [
     BrowserModule,

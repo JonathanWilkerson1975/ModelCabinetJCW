@@ -54,55 +54,28 @@ namespace ModelCabinet.Server.Migrations
 
                     b.HasIndex("ProjectId");
 
-                    b.ToTable("Asset");
+                    b.ToTable("Asset", (string)null);
 
                     b.HasData(
                         new
                         {
                             AssetId = 1,
-                            DateCreation = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateUpdated = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateCreation = new DateTime(2025, 2, 6, 12, 29, 14, 314, DateTimeKind.Local).AddTicks(7342),
+                            DateUpdated = new DateTime(2025, 2, 6, 12, 29, 14, 314, DateTimeKind.Local).AddTicks(7347),
                             FileSize = 446684L,
                             Name = "Test Asset",
-                            Path = "C:\\Projects\\Large_Projects\\ModelCabinet-Fork\\ModelCabinet.Server\\bin\\Debug\\net8.0\\Assets\\TestProject\\HelloWorld.stl",
+                            Path = "C:\\Users\\gaski\\source\\repos\\ModelCabinet\\ModelCabinet.Server\\bin\\Debug\\net8.0\\Assets\\TestProject\\HelloWorld.stl",
                             ProjectId = 1
                         },
                         new
                         {
                             AssetId = 2,
-                            DateCreation = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateUpdated = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateCreation = new DateTime(2025, 2, 6, 12, 29, 14, 314, DateTimeKind.Local).AddTicks(7354),
+                            DateUpdated = new DateTime(2025, 2, 6, 12, 29, 14, 314, DateTimeKind.Local).AddTicks(7356),
                             FileSize = 11285384L,
                             Name = "Benchy",
-                            Path = "C:\\Projects\\Large_Projects\\ModelCabinet-Fork\\ModelCabinet.Server\\bin\\Debug\\net8.0\\Assets\\TestProject\\3DBenchy.stl",
+                            Path = "C:\\Users\\gaski\\source\\repos\\ModelCabinet\\ModelCabinet.Server\\bin\\Debug\\net8.0\\Assets\\TestProject\\3DBenchy.stl",
                             ProjectId = 1
-                        });
-                });
-
-            modelBuilder.Entity("ModelCabinet.Server.Models.AssetTag", b =>
-                {
-                    b.Property<int>("AssetId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("TagId")
-                        .HasColumnType("int");
-
-                    b.HasKey("AssetId", "TagId");
-
-                    b.HasIndex("TagId");
-
-                    b.ToTable("AssetTag");
-
-                    b.HasData(
-                        new
-                        {
-                            AssetId = 2,
-                            TagId = 1
-                        },
-                        new
-                        {
-                            AssetId = 1,
-                            TagId = 6
                         });
                 });
 
@@ -146,16 +119,16 @@ namespace ModelCabinet.Server.Migrations
 
                     b.HasKey("ProjectId");
 
-                    b.ToTable("Project");
+                    b.ToTable("Project", (string)null);
 
                     b.HasData(
                         new
                         {
                             ProjectId = 1,
                             Author = "Author",
-                            CreationDate = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreationDate = new DateTime(2025, 2, 6, 12, 29, 14, 314, DateTimeKind.Local).AddTicks(7022),
                             Description = "Description",
-                            ModifiedDate = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ModifiedDate = new DateTime(2025, 2, 6, 12, 29, 14, 314, DateTimeKind.Local).AddTicks(7069),
                             Name = "Test Project",
                             ShortDescription = "Desc",
                             Slug = "nomen-est-omen",
@@ -165,112 +138,13 @@ namespace ModelCabinet.Server.Migrations
                         {
                             ProjectId = 2,
                             Author = "Author",
-                            CreationDate = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreationDate = new DateTime(2025, 2, 6, 12, 29, 14, 314, DateTimeKind.Local).AddTicks(7074),
                             Description = "Description",
-                            ModifiedDate = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ModifiedDate = new DateTime(2025, 2, 6, 12, 29, 14, 314, DateTimeKind.Local).AddTicks(7075),
                             Name = "Test Project Two",
                             ShortDescription = "Desc",
-                            Slug = "nomen-est-bonum",
+                            Slug = "this is not good",
                             Version = "0.0.1"
-                        });
-                });
-
-            modelBuilder.Entity("ModelCabinet.Server.Models.ProjectTag", b =>
-                {
-                    b.Property<int>("ProjectId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("TagId")
-                        .HasColumnType("int");
-
-                    b.HasKey("ProjectId", "TagId");
-
-                    b.HasIndex("TagId");
-
-                    b.ToTable("ProjectTag");
-
-                    b.HasData(
-                        new
-                        {
-                            ProjectId = 1,
-                            TagId = 3
-                        },
-                        new
-                        {
-                            ProjectId = 1,
-                            TagId = 4
-                        },
-                        new
-                        {
-                            ProjectId = 1,
-                            TagId = 5
-                        },
-                        new
-                        {
-                            ProjectId = 2,
-                            TagId = 1
-                        },
-                        new
-                        {
-                            ProjectId = 2,
-                            TagId = 2
-                        },
-                        new
-                        {
-                            ProjectId = 2,
-                            TagId = 5
-                        });
-                });
-
-            modelBuilder.Entity("ModelCabinet.Server.Models.Tag", b =>
-                {
-                    b.Property<int>("TagId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TagId"));
-
-                    b.Property<string>("TagName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("TagId");
-
-                    b.HasIndex("TagName")
-                        .IsUnique();
-
-                    b.ToTable("Tag");
-
-                    b.HasData(
-                        new
-                        {
-                            TagId = 1,
-                            TagName = "Stress Test"
-                        },
-                        new
-                        {
-                            TagId = 2,
-                            TagName = "D&D"
-                        },
-                        new
-                        {
-                            TagId = 3,
-                            TagName = "Pathfinder"
-                        },
-                        new
-                        {
-                            TagId = 4,
-                            TagName = "Low Detail"
-                        },
-                        new
-                        {
-                            TagId = 5,
-                            TagName = "High Detail"
-                        },
-                        new
-                        {
-                            TagId = 6,
-                            TagName = "Video Game"
                         });
                 });
 
@@ -283,61 +157,9 @@ namespace ModelCabinet.Server.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("ModelCabinet.Server.Models.AssetTag", b =>
-                {
-                    b.HasOne("ModelCabinet.Server.Models.Asset", "Asset")
-                        .WithMany("AssetTags")
-                        .HasForeignKey("AssetId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("ModelCabinet.Server.Models.Tag", "Tag")
-                        .WithMany("AssetTags")
-                        .HasForeignKey("TagId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Asset");
-
-                    b.Navigation("Tag");
-                });
-
-            modelBuilder.Entity("ModelCabinet.Server.Models.ProjectTag", b =>
-                {
-                    b.HasOne("ModelCabinet.Server.Models.Project", "Project")
-                        .WithMany("ProjectTags")
-                        .HasForeignKey("ProjectId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("ModelCabinet.Server.Models.Tag", "Tag")
-                        .WithMany("ProjectTags")
-                        .HasForeignKey("TagId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Project");
-
-                    b.Navigation("Tag");
-                });
-
-            modelBuilder.Entity("ModelCabinet.Server.Models.Asset", b =>
-                {
-                    b.Navigation("AssetTags");
-                });
-
             modelBuilder.Entity("ModelCabinet.Server.Models.Project", b =>
                 {
                     b.Navigation("Assets");
-
-                    b.Navigation("ProjectTags");
-                });
-
-            modelBuilder.Entity("ModelCabinet.Server.Models.Tag", b =>
-                {
-                    b.Navigation("AssetTags");
-
-                    b.Navigation("ProjectTags");
                 });
 #pragma warning restore 612, 618
         }

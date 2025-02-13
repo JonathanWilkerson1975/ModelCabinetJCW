@@ -1,3 +1,5 @@
+import { Tag } from "./tag";
+
 export interface Asset {
   assetId: number,
   name: string,
@@ -5,5 +7,6 @@ export interface Asset {
   dateCreation: Date,
   dateUpdated: Date,
   fileSize: number, 
-  projectId: number
+  projectId: number,
+  assetTags: Tag[]
 }

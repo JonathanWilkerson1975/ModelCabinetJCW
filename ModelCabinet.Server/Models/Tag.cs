@@ -8,7 +8,5 @@ namespace ModelCabinet.Server.Models
         [Key]
         public int TagId { get; set; }
         public string TagName { get; set; }
-        public ICollection<AssetTag> AssetTags { get; set; }
-        public ICollection<ProjectTag> ProjectTags { get; set; }
     }
 }

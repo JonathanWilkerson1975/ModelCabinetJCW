@@ -30,7 +30,8 @@ export class DataService {
     version: '',
     assets: [],
     shortDescription: '',
-    slug: ''
+    slug: '',
+    projectTags: []
   });
 
   assets$: BehaviorSubject<Asset[]> = new BehaviorSubject<Asset[]>([]);
@@ -41,7 +42,8 @@ export class DataService {
     dateCreation: new Date,
     dateUpdated: new Date,
     fileSize: 0,
-    projectId: 0
+    projectId: 0,
+    assetTags: []
   });
 
   // Pagination state management

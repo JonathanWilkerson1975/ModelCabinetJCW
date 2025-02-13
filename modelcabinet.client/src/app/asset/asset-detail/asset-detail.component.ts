@@ -18,7 +18,8 @@ export class AssetDetailComponent {
       dateCreation: new Date(),
       dateUpdated: new Date(),
       fileSize: 0,
-      projectId: 0
+      projectId: 0,
+      assetTags: []
   };
 
   constructor(private route: ActivatedRoute, private data: DataService, private router: Router) {

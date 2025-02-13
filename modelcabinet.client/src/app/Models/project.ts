@@ -1,4 +1,5 @@
 import { Asset } from "./asset";
+import { Tag } from "./tag";
 
 export interface Project {
 
@@ -12,5 +13,5 @@ export interface Project {
   assets: Asset[],
   shortDescription: string,
   slug: string,
-
+  projectTags: Tag[]
 }

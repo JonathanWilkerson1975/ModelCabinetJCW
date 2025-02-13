@@ -4,12 +4,12 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ModelCabinet.Server.Models
 {
-    [PrimaryKey(nameof(ProjectId), nameof(TagId))]
     public class ProjectTag
     {
+        [Key]
+        public int ProjectTagId { get; set; }
         public int ProjectId { get; set; }
         public Project Project { get; set; } = null!;
-        public int TagId { get; set; }
-        public Tag Tag { get; set; } = null!;
+        public ICollection<Tag> Tags { get; set; } = [];
     }
 }
