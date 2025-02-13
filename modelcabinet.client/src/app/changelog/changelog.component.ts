@@ -10,7 +10,7 @@ import { Commit } from '../services/changelog.service';
 
 export class ChangelogComponent implements OnInit {
   commits: Commit[] = [];
-  loading: boolean = true;
+  loading = true;
 
   constructor(private changelogService: ChangelogService) { }
 
