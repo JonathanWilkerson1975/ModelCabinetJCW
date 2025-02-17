@@ -1,0 +1,33 @@
+<div class="container mt-4">
+  <!-- Loading indicator -->
+  <div *ngIf="loading" class="text-center">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    <p>Loading changelog...</p>
+  </div>
+
+  <!-- No commits message -->
+  <div *ngIf="!loading && commits.length === 0" class="alert alert-warning text-center" role="alert">
+    No commits found.
+  </div>
+
+  <!-- Commit list -->
+  <div *ngIf="commits.length > 0" class="row">
+    <div *ngFor="let commit of commits" class="col-md-6 col-lg-4 mb-4">
+      <div class="card h-100">
+        <div class="card-body">
+          <p class="card-text"><strong>Author:</strong> {{ commit.commit.author.name }}</p>
+          <p class="card-text"><strong>Date:</strong> {{ commit.commit.author.date | date:'MMMM d, y h:mm a' }}</p>
+          <p class="card-text"><strong>Message:</strong> {{ commit.commit.message }}</p>
+        </div>
+        <div class="card-footer">
+          <a href="https://github.com/CCAppDevs/ModelCabinet/commit/{{commit.sha}}" target="_blank"
+            class="btn btn-primary btn-sm">
+            View Commit
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

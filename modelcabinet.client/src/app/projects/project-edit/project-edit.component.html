@@ -1,0 +1,10 @@
+<!-- modify this depending on whether project page component acts as a template for how the edit page will look?-->
+<h2>{{isEditing ? 'Edit' : 'Create'}} Project</h2>
+<form [formGroup]="projectEditFormGroup" (ngSubmit)="onSubmit()">
+  <input formControlName="name" />
+  <input formControlName="shortDescription" />
+  <input formControlName="author" />
+  <input type="date" formControlName="creationDate" />
+  <input type="date" formControlName="modifiedDate" />
+  <button type="submit">{{isEditing ? 'Create' : 'Save'}}</button>
+</form>
