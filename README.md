@@ -82,6 +82,8 @@ After pulling the repository, cd into the folder that has the package.json, whic
 
 Download the repository
 
+After pulling the repository, cd into the folder that has the package.json, which is the client folder.
+
 Navigate to project-page.component.html:5:6 and comment out
 
  "$`\color{fcfc7f}\textsf{<app-viewport></app-viewport>}`$"
@@ -120,7 +122,9 @@ dotnet tool install --global dotnet-ef
 
 Navigate to project-page.component.html:5:6 and comment out $`\color{fcfc7f}\textsf{<app-viewport></app-viewport>}`$
 
-Run "npm start" in the terminal to launch the project client
+Run "npm init" in the terminal to launch the from the project modelcabinet.client
+
+Run "dotnet run" in the the ModelCabinet.Server
 
 After project is able to run, update the database.
 
