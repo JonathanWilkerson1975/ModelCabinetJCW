@@ -25,7 +25,6 @@ export class AssetDetailComponent {
   requestEdit() {
     this.editRequested.emit(this.asset);
   }
-<<<<<<< HEAD
 
   constructor(
     private route: ActivatedRoute,
@@ -56,6 +55,4 @@ export class AssetDetailComponent {
       return `${size} B`;
     }
   }
-=======
->>>>>>> upstream/development
 }
