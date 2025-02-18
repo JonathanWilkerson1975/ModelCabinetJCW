@@ -17,6 +17,7 @@ import { ContributorsComponent } from "./components/contributors/contributors.co
 import { ComingSoonComponent } from './coming-soon/coming-soon.component';
 import { FileSizePipe } from "./Pipes/file-size.pipe";
 import { AboutModelCabinetComponent } from "./About-ModelCabinet/About-ModelCabinet.component";
+import { ViewportComponent } from "./viewport/viewport.component";
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
@@ -37,7 +38,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     ComingSoonComponent,
     DeveloperCardComponent,
     ContributorsComponent,
-    FileSizePipe
+    FileSizePipe,
+    ViewportComponent
   ],
   imports: [
     BrowserModule,
