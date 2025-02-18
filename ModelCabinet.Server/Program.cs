@@ -67,7 +67,6 @@ namespace ModelCabinet.Server
                     CreateNoWindow = true
                 };
 
-
                 using (Process process = new Process { StartInfo = psi })
                 {
                     process.Start();

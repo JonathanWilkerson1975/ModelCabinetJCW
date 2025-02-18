@@ -13,7 +13,6 @@ ModelCabinet is a 3d printing management tool for managing 3d printer files in a
 - Issue Tracker
 - [Roadmap - Github Projects](https://github.com/orgs/CCAppDevs/projects/2)
 
-
 ## **Get Started for VS Code**
 Download the repository
 
@@ -121,7 +120,6 @@ dotnet tool install --global dotnet-ef
 
 Run "dotnet run" in the the ModelCabinet.Server
 
-
 ## **Update the Database**
 ```
 
@@ -131,11 +129,9 @@ Pulls data for project from the repository.
 
 ```
 
-
 ### Linux:
 
 $`\color{fcfc7f}\textsf{Sql Server Current isn't Natively Supported On Linux}`$
-
 
 ## **Contributing**
 To contribute to the project please create your own fork of the repository and submit your changes for review via a pull request.
