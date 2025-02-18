@@ -12,19 +12,20 @@ import { HttpClient } from '@angular/common/http';
 export class AssetDetailComponent {
 
   @Input() asset: Asset = {
-      assetId: 0,
-      name: '',
-      path: '',
-      dateCreation: new Date(),
-      dateUpdated: new Date(),
-      fileSize: 0,
-      projectId: 0
+    assetId: 0,
+    name: '',
+    path: '',
+    dateCreation: new Date(),
+    dateUpdated: new Date(),
+    fileSize: 0,
+    projectId: 0
   };
   @Output() editRequested = new EventEmitter<Asset>();
 
   requestEdit() {
     this.editRequested.emit(this.asset);
   }
+<<<<<<< HEAD
 
   constructor(
     private route: ActivatedRoute,
@@ -55,4 +56,6 @@ export class AssetDetailComponent {
       return `${size} B`;
     }
   }
+=======
+>>>>>>> upstream/development
 }

@@ -1,7 +1,6 @@
 import { provideHttpClient } from "@angular/common/http";
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
-import { AboutProjectComponent } from "./about-project/about-project.component";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { AssetDetailComponent } from "./asset/asset-detail/asset-detail.component";
@@ -16,6 +15,8 @@ import { ProjectListPageComponent } from "./projects/project-list-page/project-l
 import { ProjectPageComponent } from "./projects/project-page/project-page.component";
 import { ContributorsComponent } from "./components/contributors/contributors.component";
 import { ComingSoonComponent } from './coming-soon/coming-soon.component';
+import { FileSizePipe } from "./Pipes/file-size.pipe";
+import { AboutModelCabinetComponent } from "./About-ModelCabinet/About-ModelCabinet.component";
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
@@ -28,14 +29,15 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     NavBarComponent,
     ChangelogComponent,
     ProfilePageComponent,
-    AboutProjectComponent,
+    AboutModelCabinetComponent,
     ChangelogComponent,
     ProjectEditComponent,
     AssetListComponent,
     AssetDetailComponent,
     ComingSoonComponent,
     DeveloperCardComponent,
-    ContributorsComponent
+    ContributorsComponent,
+    FileSizePipe
   ],
   imports: [
     BrowserModule,
@@ -46,4 +48,5 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
   providers: [provideHttpClient()], // Using this method rather than the module as the module is labeled as depricated
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

@@ -1,4 +1,3 @@
-
 <div>
   <h1>{{asset.name}}</h1>
 
@@ -9,7 +8,7 @@
     Date Updated: {{asset.dateUpdated | date:'short'}}
   </p>
   <p>
-    File Size: {{ formatFileSize(asset.fileSize) }}
+    File Size: {{ asset.fileSize | fileSize }}
   </p>
   <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editAssetModal" (click)="requestEdit()">
     Edit Asset

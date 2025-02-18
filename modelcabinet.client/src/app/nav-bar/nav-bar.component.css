@@ -90,6 +90,9 @@
     color: #003366; /* Dark navy text */
   }
 
+  i.bi-person-circle{
+      font-size: xxx-large;
+  }
 /* Responsive Adjustments for Collapsed Navbar */
 @media (max-width: 991.98px) {
   .navbar-nav {
