@@ -19,6 +19,7 @@ import { ComingSoonComponent } from './coming-soon/coming-soon.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FileSizePipe } from "./Pipes/file-size.pipe";
 import { AboutModelCabinetComponent } from "./About-ModelCabinet/About-ModelCabinet.component";
+import { ViewportComponent } from "./viewport/viewport.component";
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { AboutModelCabinetComponent } from "./About-ModelCabinet/About-ModelCabi
     ComingSoonComponent,
     DeveloperCardComponent,
     ContributorsComponent,
-    FileSizePipe
+    FileSizePipe,
+    ViewportComponent
   ],
   imports: [
       BrowserModule,
