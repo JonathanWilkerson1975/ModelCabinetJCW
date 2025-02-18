@@ -35,13 +35,13 @@ namespace ModelCabinet.Server
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
-#if DEBUG
-                Console.WriteLine("Running in DEBUG mode - Switching to 'development' branch.");
-                SwitchToCorrectBranch("development");
-#else
-                    Console.WriteLine("Running in RELEASE mode - Ensuring 'master' branch is used.");
-                    SwitchToCorrectBranch("master");
-#endif
+                #if DEBUG
+                                Console.WriteLine("Running in DEBUG mode - Switching to 'development' branch.");
+                                SwitchToCorrectBranch("development");
+                #else
+                                    Console.WriteLine("Running in RELEASE mode - Ensuring 'master' branch is used.");
+                                    SwitchToCorrectBranch("master");
+                #endif
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
