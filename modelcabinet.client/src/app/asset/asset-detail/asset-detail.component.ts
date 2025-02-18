@@ -20,6 +20,9 @@ export class AssetDetailComponent {
     projectId: 0
   };
 
+  stuff: boolean = true;
+  name: string = "Jesse";
+
   constructor(private route: ActivatedRoute, private data: DataService, private router: Router) {
 
   }
