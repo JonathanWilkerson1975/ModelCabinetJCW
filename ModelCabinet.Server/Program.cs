@@ -32,6 +32,7 @@ namespace ModelCabinet.Server
             app.UseStaticFiles();
 
 
+            // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
 #if DEBUG
@@ -50,8 +51,6 @@ namespace ModelCabinet.Server
 
             }
 
-
-            // Configure the HTTP request pipeline.
 
 
             app.UseHttpsRedirection();

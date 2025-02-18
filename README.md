@@ -78,7 +78,6 @@ Run the App
 ```
 
 ## **Get Started for Visual Studio 2022**
-After pulling the repository, cd into the folder that has the package.json, which is the client folder.
 
 Download the repository
 
@@ -120,29 +119,15 @@ https://nodejs.org/en
 dotnet tool install --global dotnet-ef
 ```
 
-Navigate to project-page.component.html:5:6 and comment out $`\color{fcfc7f}\textsf{<app-viewport></app-viewport>}`$
-
-Run "npm init" in the terminal to launch the from the project modelcabinet.client
-
 Run "dotnet run" in the the ModelCabinet.Server
 
-After project is able to run, update the database.
 
 ## **Update the Database**
 ```
-"dotnet restore"
-
--To ensure versions match up with the written code
-
-After dotnet restore, cd into ModelCabinet.Server
 
 "dotnet ef database update"
 
 Pulls data for project from the repository.
-
-Run the App
-
-"dotnet run"
 
 ```
 
