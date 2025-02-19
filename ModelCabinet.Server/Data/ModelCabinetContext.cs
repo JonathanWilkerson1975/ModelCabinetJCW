@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Metadata;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using ModelCabinet.Server.Models;
 
 namespace ModelCabinet.Server.Data
 {
-    public class ModelCabinetContext : DbContext
+    public class ModelCabinetContext : IdentityDbContext<ApplicationUser>
     {
         public ModelCabinetContext(DbContextOptions<ModelCabinetContext> options) : base(options) { }
 
