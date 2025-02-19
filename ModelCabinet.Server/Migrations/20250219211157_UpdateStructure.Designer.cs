@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ModelCabinet.Server.Data;
 
@@ -11,9 +12,11 @@ using ModelCabinet.Server.Data;
 namespace ModelCabinet.Server.Migrations
 {
     [DbContext(typeof(ModelCabinetContext))]
-    partial class ModelCabinetContextModelSnapshot : ModelSnapshot
+    [Migration("20250219211157_UpdateStructure")]
+    partial class UpdateStructure
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -326,33 +329,6 @@ namespace ModelCabinet.Server.Migrations
                         });
                 });
 
-            modelBuilder.Entity("ModelCabinet.Server.Models.AssetTag", b =>
-                {
-                    b.Property<int>("AssetId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("TagId")
-                        .HasColumnType("int");
-
-                    b.HasKey("AssetId", "TagId");
-
-                    b.HasIndex("TagId");
-
-                    b.ToTable("AssetTag");
-
-                    b.HasData(
-                        new
-                        {
-                            AssetId = 2,
-                            TagId = 1
-                        },
-                        new
-                        {
-                            AssetId = 1,
-                            TagId = 6
-                        });
-                });
-
             modelBuilder.Entity("ModelCabinet.Server.Models.Project", b =>
                 {
                     b.Property<int>("ProjectId")
@@ -425,115 +401,6 @@ namespace ModelCabinet.Server.Migrations
                         });
                 });
 
-            modelBuilder.Entity("ModelCabinet.Server.Models.ProjectTag", b =>
-                {
-                    b.Property<int>("ProjectId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("TagId")
-                        .HasColumnType("int");
-
-                    b.HasKey("ProjectId", "TagId");
-
-                    b.HasIndex("TagId");
-
-                    b.ToTable("ProjectTag");
-
-                    b.HasData(
-                        new
-                        {
-                            ProjectId = 1,
-                            TagId = 3
-                        },
-                        new
-                        {
-                            ProjectId = 1,
-                            TagId = 4
-                        },
-                        new
-                        {
-                            ProjectId = 1,
-                            TagId = 5
-                        },
-                        new
-                        {
-                            ProjectId = 2,
-                            TagId = 1
-                        },
-                        new
-                        {
-                            ProjectId = 2,
-                            TagId = 2
-                        },
-                        new
-                        {
-                            ProjectId = 2,
-                            TagId = 5
-                        });
-                });
-
-            modelBuilder.Entity("ModelCabinet.Server.Models.Tag", b =>
-                {
-                    b.Property<int>("TagId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TagId"));
-
-                    b.Property<string>("Color")
-                        .IsRequired()
-                        .HasColumnType("char(6)");
-
-                    b.Property<string>("TagName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("TagId");
-
-                    b.HasIndex("TagName")
-                        .IsUnique();
-
-                    b.ToTable("Tag");
-
-                    b.HasData(
-                        new
-                        {
-                            TagId = 1,
-                            Color = "fae033",
-                            TagName = "Stress Test"
-                        },
-                        new
-                        {
-                            TagId = 2,
-                            Color = "df0000",
-                            TagName = "D&D"
-                        },
-                        new
-                        {
-                            TagId = 3,
-                            Color = "40E0D0",
-                            TagName = "Pathfinder"
-                        },
-                        new
-                        {
-                            TagId = 4,
-                            Color = "afafaf",
-                            TagName = "Low Detail"
-                        },
-                        new
-                        {
-                            TagId = 5,
-                            Color = "3f3f3f",
-                            TagName = "High Detail"
-                        },
-                        new
-                        {
-                            TagId = 6,
-                            Color = "23a300",
-                            TagName = "Video Game"
-                        });
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -594,61 +461,9 @@ namespace ModelCabinet.Server.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("ModelCabinet.Server.Models.AssetTag", b =>
-                {
-                    b.HasOne("ModelCabinet.Server.Models.Asset", "Asset")
-                        .WithMany("Tags")
-                        .HasForeignKey("AssetId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("ModelCabinet.Server.Models.Tag", "Tag")
-                        .WithMany("AssetTags")
-                        .HasForeignKey("TagId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Asset");
-
-                    b.Navigation("Tag");
-                });
-
-            modelBuilder.Entity("ModelCabinet.Server.Models.ProjectTag", b =>
-                {
-                    b.HasOne("ModelCabinet.Server.Models.Project", "Project")
-                        .WithMany("Tags")
-                        .HasForeignKey("ProjectId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("ModelCabinet.Server.Models.Tag", "Tag")
-                        .WithMany("ProjectTags")
-                        .HasForeignKey("TagId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Project");
-
-                    b.Navigation("Tag");
-                });
-
-            modelBuilder.Entity("ModelCabinet.Server.Models.Asset", b =>
-                {
-                    b.Navigation("Tags");
-                });
-
             modelBuilder.Entity("ModelCabinet.Server.Models.Project", b =>
                 {
                     b.Navigation("Assets");
-
-                    b.Navigation("Tags");
-                });
-
-            modelBuilder.Entity("ModelCabinet.Server.Models.Tag", b =>
-                {
-                    b.Navigation("AssetTags");
-
-                    b.Navigation("ProjectTags");
                 });
 #pragma warning restore 612, 618
         }
