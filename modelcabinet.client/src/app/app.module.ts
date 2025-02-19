@@ -2,7 +2,6 @@
 import { provideHttpClient } from "@angular/common/http";
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
-import { AboutProjectComponent } from "./about-project/about-project.component";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { AssetDetailComponent } from "./asset/asset-detail/asset-detail.component";
@@ -18,6 +17,9 @@ import { ProjectPageComponent } from "./projects/project-page/project-page.compo
 import { ContributorsComponent } from "./components/contributors/contributors.component";
 import { ComingSoonComponent } from './coming-soon/coming-soon.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FileSizePipe } from "./Pipes/file-size.pipe";
+import { AboutModelCabinetComponent } from "./About-ModelCabinet/About-ModelCabinet.component";
+import { ViewportComponent } from "./viewport/viewport.component";
 import { TagLabelComponent } from './tag-label/tag-label.component';
 
 @NgModule({
@@ -30,7 +32,7 @@ import { TagLabelComponent } from './tag-label/tag-label.component';
     NavBarComponent,
     ChangelogComponent,
     ProfilePageComponent,
-    AboutProjectComponent,
+    AboutModelCabinetComponent,
     ChangelogComponent,
     ProjectEditComponent,
     AssetListComponent,
@@ -38,14 +40,18 @@ import { TagLabelComponent } from './tag-label/tag-label.component';
     ComingSoonComponent,
     DeveloperCardComponent,
     ContributorsComponent,
+    FileSizePipe,
+    ViewportComponent,
+    ContributorsComponent,
     TagLabelComponent
   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule,
-    ReactiveFormsModule // For Project Edit Component
+      BrowserModule,
+      AppRoutingModule,
+      ReactiveFormsModule // For Project Edit Component
   ],
   providers: [provideHttpClient()], // Using this method rather than the module as the module is labeled as depricated
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

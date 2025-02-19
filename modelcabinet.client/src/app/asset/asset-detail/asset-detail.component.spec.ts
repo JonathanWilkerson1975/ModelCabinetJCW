@@ -1,14 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AssetDetailComponent } from './asset-detail.component';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('AssetDetailComponent', () => {
   let component: AssetDetailComponent;
   let fixture: ComponentFixture<AssetDetailComponent>;
 
   beforeEach(async () => {
+    // global arrange
     await TestBed.configureTestingModule({
-      declarations: [AssetDetailComponent]
+      declarations: [AssetDetailComponent],
+      imports: [
+        RouterTestingModule.withRoutes([])
+      ]
     })
     .compileComponents();
 
@@ -18,6 +23,16 @@ describe('AssetDetailComponent', () => {
   });
 
   it('should create', () => {
+    // arrange more
     expect(component).toBeTruthy();
+  });
+
+  it('should have stuff', () => {
+    expect(component.stuff).toBeTrue();
+    expect(component.stuff).toBeTruthy();
+  });
+
+  it('should be named paul', () => {
+    expect(component.name).toBe("Paul");
   });
 });
