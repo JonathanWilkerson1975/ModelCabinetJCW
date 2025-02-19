@@ -1,10 +1,8 @@
-using System.Diagnostics;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using ModelCabinet.Server.Data;
 using Microsoft.AspNetCore.Identity;
 using ModelCabinet.Server.Models;
-
 
 namespace ModelCabinet.Server
 {
@@ -12,7 +10,6 @@ namespace ModelCabinet.Server
     {
         public static async Task Main(string[] args)
         {
-
             var builder = WebApplication.CreateBuilder(args);
 
             // Add DbContext
@@ -79,18 +76,9 @@ namespace ModelCabinet.Server
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
-                #if DEBUG
-                                Console.WriteLine("Running in DEBUG mode - Switching to 'development' branch.");
-                                SwitchToCorrectBranch("development");
-                #else
-                                    Console.WriteLine("Running in RELEASE mode - Ensuring 'master' branch is used.");
-                                    SwitchToCorrectBranch("master");
-                #endif
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
-            else
-            {
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
@@ -106,44 +94,5 @@ namespace ModelCabinet.Server
 
             app.Run();
         }
-
-        private static void SwitchToCorrectBranch(string branchName)
-        {
-            try
-            {
-                ProcessStartInfo psi = new ProcessStartInfo
-                {
-                    FileName = "git",
-                    Arguments = $"switch {branchName}",
-                    RedirectStandardOutput = true,
-                    RedirectStandardError = true,
-                    UseShellExecute = false,
-                    CreateNoWindow = true
-                };
-
-                using (Process process = new Process { StartInfo = psi })
-                {
-                    process.Start();
-                    string output = process.StandardOutput.ReadToEnd();
-                    string error = process.StandardError.ReadToEnd();
-                    process.WaitForExit();
-
-
-                    Console.WriteLine($"Git Output: {output}");
-                    if (!string.IsNullOrEmpty(error))
-                    {
-                        Console.WriteLine($"Git Error: {error}");
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error switching to {branchName} branch: {ex.Message}");
-            }
-        }
     }
 }
-
-
-
-
