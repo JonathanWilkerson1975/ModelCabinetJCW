@@ -31,7 +31,9 @@ export class AssetDetailComponent {
     private data: DataService,
     private router: Router,
     private http: HttpClient
-  ) {}
+  ) {
+    this.data.getAllAssets();
+  }
 
   formatFileSize(size: number): string {
     const byteSizes: number[] = [1000000000000000, 1000000000000, 1000000000, 1000000, 1000];
