@@ -132,7 +132,7 @@ export class DataService {
   }
 
   updateAssetById(id:number, asset: Asset) {
-    this.http.put<Asset>(`/api/Assets`, asset).subscribe(data => {
+    this.http.put<Asset>(`/api/Assets/${id}`, asset).subscribe(data => {
       this.asset$.next(data);
     });
   }

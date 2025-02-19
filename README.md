@@ -13,35 +13,126 @@ ModelCabinet is a 3d printing management tool for managing 3d printer files in a
 - Issue Tracker
 - [Roadmap - Github Projects](https://github.com/orgs/CCAppDevs/projects/2)
 
+## **Get Started for VS Code**
+Download the repository
+
 ## **Dependencies**
 - Dotnet
 - SQL Server
 - Node.js
 - Angular CLI
-- THREE.js
+- Dotnet EF
+- Angular-stl-model-viewer
+    - Three.js is a dependency of Angular-stl-model-viewer and should auto install with Angular-stl-model-viewer.
 
-## **Get Started**
-- Download the repository
-- Install Dependencies
+## **Checking/Installing Dependencies**
+
+- Open terminal and run and 
 ```
-dotnet add package Microsoft.EntityFrameworkCore.SqlServer
-dotnet add package Microsoft.EntityFrameworkCore.Design
-dotnet add package Microsoft.EntityFrameworkCore.Tools
+"dotnet --version"
+- To check if dotnet is installed
+If not then check in the extensions tab on the left nav and looked up dotnet. (dotnet by leo-labs)
+
+"sc queryex type= service | find "MSSQL"
+- For SQL server
+If not install, navigate the extention tab on the right nav collumn. Then in the search bard look up mssql, then it should be "SQL Server (mssql)" and "SQL Database Projects".
+
+"node --version"
+- For node.js
+If not installed, the installation can be installed here. 
+https://nodejs.org/en
+
+"ng --version"
+- For Angular CLI
+To install Angular CLI, find it in the extension tab in the left nav bar. Angular-cli
+
+To check for Angular stl model viewer look in the package-lock.json in the root to check if it's installed.
+- If not installed run
+"npm install angular-stl-model-viewer"
+in the terminal
+
+For Three.js it is installedd along side angular-stl-model-viewer
+
+"dotnet ef"
+- If not installed run 
+dotnet tool install --global dotnet-ef
 ```
-- Update the database
-    - Ensure Dotnet EF tools are installed.
-    ```
-    dotnet tool install --global dotnet-ef
-    ```
-    - Deploy the database
-    ```
-    cd ModelCabinet.Server
-    dotnet ef database update
-    ```
-- Run the App
+
+## **Update the Database**
 ```
-dotnet run
+"dotnet restore"
+
+-To ensure versions match up with the written code
+
+After dotnet restore, cd into ModelCabinet.Server
+
+"dotnet ef database update"
+
+Pulls data for project from the repository.
+
+Run the App
+
+"dotnet run"
+
 ```
+
+## **Get Started for Visual Studio 2022**
+
+Download the repository
+
+After pulling the repository, cd into the folder that has the package.json, which is the client folder.
+
+Navigate to project-page.component.html:5:6 and comment out
+
+ "$`\color{fcfc7f}\textsf{<app-viewport></app-viewport>}`$"
+
+## **Dependencies**
+- Dotnet
+- SQL Server
+- Node.js
+- Angular CLI
+- Dotnet EF
+- Angular-stl-model-viewer
+    - Three.js is a dependency of Angular-stl-model-viewer and should auto install with Angular-stl-model-viewer.
+
+## **Checking/Installing Dependencies**
+
+```
+Press the windows key and launch Visual Studio Installer
+
+Check
+ASP.NET and web development
+Azure development for dotnet SDKs
+Node.js
+.NET Multi-platform App UI development
+.NET desktop development for SQL Server Express
+Windows Application development for Nuget package manager
+
+Launch the project, it will stop if Node.js is not installed
+Node.js needs to be install seperately from it's website
+
+https://nodejs.org/en
+
+"dotnet ef"
+- If not installed run 
+dotnet tool install --global dotnet-ef
+```
+
+Run "dotnet run" in the the ModelCabinet.Server
+
+## **Update the Database**
+```
+
+"dotnet ef database update"
+
+Pulls data for project from the repository.
+
+```
+
+### Linux:
+
+$`\color{fcfc7f}\textsf{Sql Server Current isn't Natively Supported On Linux}`$
 
 ## **Contributing**
 To contribute to the project please create your own fork of the repository and submit your changes for review via a pull request.
+
