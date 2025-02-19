@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ModelCabinet.Server.Data;
 
@@ -11,9 +12,11 @@ using ModelCabinet.Server.Data;
 namespace ModelCabinet.Server.Migrations
 {
     [DbContext(typeof(ModelCabinetContext))]
-    partial class ModelCabinetContextModelSnapshot : ModelSnapshot
+    [Migration("20250217222902_InitialIdentitySchema")]
+    partial class InitialIdentitySchema
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -307,8 +310,8 @@ namespace ModelCabinet.Server.Migrations
                         new
                         {
                             AssetId = 1,
-                            DateCreation = new DateTime(2025, 2, 17, 15, 34, 26, 497, DateTimeKind.Local).AddTicks(7375),
-                            DateUpdated = new DateTime(2025, 2, 17, 15, 34, 26, 497, DateTimeKind.Local).AddTicks(7434),
+                            DateCreation = new DateTime(2025, 2, 17, 14, 29, 1, 881, DateTimeKind.Local).AddTicks(4784),
+                            DateUpdated = new DateTime(2025, 2, 17, 14, 29, 1, 881, DateTimeKind.Local).AddTicks(4837),
                             FileSize = 446684L,
                             Name = "Test Asset",
                             Path = "Assets\\TestProject\\HelloWorld.stl",
@@ -317,8 +320,8 @@ namespace ModelCabinet.Server.Migrations
                         new
                         {
                             AssetId = 2,
-                            DateCreation = new DateTime(2025, 2, 17, 15, 34, 26, 497, DateTimeKind.Local).AddTicks(7437),
-                            DateUpdated = new DateTime(2025, 2, 17, 15, 34, 26, 497, DateTimeKind.Local).AddTicks(7439),
+                            DateCreation = new DateTime(2025, 2, 17, 14, 29, 1, 881, DateTimeKind.Local).AddTicks(4841),
+                            DateUpdated = new DateTime(2025, 2, 17, 14, 29, 1, 881, DateTimeKind.Local).AddTicks(4842),
                             FileSize = 11285384L,
                             Name = "Benchy",
                             Path = "Assets\\TestProject\\3DBenchy.stl",

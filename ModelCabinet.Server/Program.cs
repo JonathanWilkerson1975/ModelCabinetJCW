@@ -1,46 +1,149 @@
-﻿using Microsoft.EntityFrameworkCore;
+using System.Diagnostics;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using ModelCabinet.Server.Data;
+using Microsoft.AspNetCore.Identity;
+using ModelCabinet.Server.Models;
+
 
 namespace ModelCabinet.Server
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public static async Task Main(string[] args)
         {
+
             var builder = WebApplication.CreateBuilder(args);
+
+            // Add DbContext
             builder.Services.AddDbContext<ModelCabinetContext>(options =>
-                options.UseSqlServer(builder.Configuration.GetConnectionString("ModelCabinetContext") ?? throw new InvalidOperationException("Connection string 'ModelCabinetContext' not found.")));
+                options.UseSqlServer(builder.Configuration.GetConnectionString("ModelCabinetContext")
+                    ?? throw new InvalidOperationException("Connection string 'ModelCabinetContext' not found.")));
+
+            // Add Identity services 
+            builder.Services.AddDefaultIdentity<ApplicationUser>(options =>
+            {
+                options.SignIn.RequireConfirmedAccount = false;
+                options.Password.RequireDigit = true;
+                options.Password.RequireLowercase = true;
+                options.Password.RequireUppercase = true;
+                options.Password.RequireNonAlphanumeric = true;
+                options.Password.RequiredLength = 8;
+            })
+            .AddEntityFrameworkStores<ModelCabinetContext>()
+            .AddDefaultTokenProviders();
+
+            //Configure the cookie settings
+            builder.Services.ConfigureApplicationCookie(options =>
+            {
+                options.Cookie.HttpOnly = true;
+                options.ExpireTimeSpan = TimeSpan.FromDays(7);
+                options.SlidingExpiration = true;
+
+                // These will return 401 Unauthorized instead of redirecting to login page
+                options.Events.OnRedirectToLogin = context =>
+                {
+                    context.Response.StatusCode = StatusCodes.Status401Unauthorized;
+                    return Task.CompletedTask;
+                };
+                options.Events.OnRedirectToAccessDenied = context =>
+                {
+                    context.Response.StatusCode = StatusCodes.Status403Forbidden;
+                    return Task.CompletedTask;
+                };
+            });
 
             // Add services to the container.
-
-            builder.Services.AddControllers();
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+            builder.Services.AddControllersWithViews();
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
             var app = builder.Build();
 
-            app.UseDefaultFiles();
-            app.UseStaticFiles();
+            // Seed users
+            using (var scope = app.Services.CreateScope())
+            {
+                var services = scope.ServiceProvider;
+                try
+                {
+                    var userManager = services.GetRequiredService<UserManager<ApplicationUser>>();
+                    await ModelCabinetContextSeed.SeedUsersAsync(userManager);
+                }
+                catch (Exception ex)
+                {
+                    var logger = services.GetRequiredService<ILogger<Program>>();
+                    logger.LogError(ex, "An error occurred while seeding users.");
+                }
+            }
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
+                #if DEBUG
+                                Console.WriteLine("Running in DEBUG mode - Switching to 'development' branch.");
+                                SwitchToCorrectBranch("development");
+                #else
+                                    Console.WriteLine("Running in RELEASE mode - Ensuring 'master' branch is used.");
+                                    SwitchToCorrectBranch("master");
+                #endif
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
+            else
+            {
 
             app.UseHttpsRedirection();
+            app.UseStaticFiles();
+            app.UseRouting();
 
+            // Add authentication and authorization
+            app.UseAuthentication();
             app.UseAuthorization();
 
-
+            // Configure routing
             app.MapControllers();
-
             app.MapFallbackToFile("/index.html");
 
             app.Run();
         }
+
+        private static void SwitchToCorrectBranch(string branchName)
+        {
+            try
+            {
+                ProcessStartInfo psi = new ProcessStartInfo
+                {
+                    FileName = "git",
+                    Arguments = $"switch {branchName}",
+                    RedirectStandardOutput = true,
+                    RedirectStandardError = true,
+                    UseShellExecute = false,
+                    CreateNoWindow = true
+                };
+
+                using (Process process = new Process { StartInfo = psi })
+                {
+                    process.Start();
+                    string output = process.StandardOutput.ReadToEnd();
+                    string error = process.StandardError.ReadToEnd();
+                    process.WaitForExit();
+
+
+                    Console.WriteLine($"Git Output: {output}");
+                    if (!string.IsNullOrEmpty(error))
+                    {
+                        Console.WriteLine($"Git Error: {error}");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error switching to {branchName} branch: {ex.Message}");
+            }
+        }
     }
 }
+
+
+
+
