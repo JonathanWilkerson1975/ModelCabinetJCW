@@ -27,12 +27,4 @@ describe('AssetDetailComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should have stuff', () => {
-    expect(component.stuff).toBeTrue();
-    expect(component.stuff).toBeTruthy();
-  });
-
-  it('should be named paul', () => {
-    expect(component.name).toBe("Paul");
-  });
 });
