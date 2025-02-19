@@ -72,80 +72,86 @@ namespace ModelCabinet.Server.Data
                 new Tag
                 {
                     TagId = 1,
-                    TagName = "Stress Test"
+                    TagName = "Stress Test",
+                    Color = "fae033"
                 },
                 new Tag
                 {
                     TagId = 2,
-                    TagName = "D&D"
+                    TagName = "D&D",
+                    Color = "df0000"
                 },
                 new Tag
                 {
                     TagId = 3,
-                    TagName = "Pathfinder"
+                    TagName = "Pathfinder",
+                    Color = "40E0D0"
                 },
                 new Tag
                 {
                     TagId = 4,
-                    TagName = "Low Detail"
+                    TagName = "Low Detail",
+                    Color = "afafaf"
                 },
                 new Tag
                 {
                     TagId = 5,
-                    TagName = "High Detail"
+                    TagName = "High Detail",
+                    Color = "3f3f3f"
                 },
                 new Tag
                 {
                     TagId = 6,
-                    TagName = "Video Game"
+                    TagName = "Video Game",
+                    Color = "23a300"
                 }
             );
 
-            //modelBuilder.Entity<AssetTag>().HasData(
-            //    new AssetTag
-            //    {
-            //        AssetId = 2,
-            //        TagId = 1
-            //    },
-            //    new AssetTag
-            //    {
-            //        AssetId = 1,
-            //        TagId = 6
-            //    }
-            //);
+            modelBuilder.Entity<AssetTag>().HasData(
+                new AssetTag
+                {
+                    AssetId = 2,
+                    TagId = 1
+                },
+                new AssetTag
+                {
+                    AssetId = 1,
+                    TagId = 6
+                }
+            );
 
-            //modelBuilder.Entity<ProjectTag>().HasData(
-            //    new ProjectTag
-            //    {
-            //        TagId = 3,
-            //        ProjectId = 1
-            //    },
-            //    new ProjectTag
-            //    {
-            //        TagId = 4,
-            //        ProjectId = 1
-            //    },
-            //    new ProjectTag
-            //    {
-            //        TagId = 5,
-            //        ProjectId = 1
-            //    },
-            //    new ProjectTag
-            //    {
-            //        TagId = 1,
-            //        ProjectId = 2
-            //    },
-            //    new ProjectTag
-            //    {
-            //        TagId = 2,
-            //        ProjectId = 2
-            //    },
-            //    new ProjectTag
-            //    {
-            //        TagId = 5,
-            //        ProjectId = 2
-            //    }
-            //);
+            modelBuilder.Entity<ProjectTag>().HasData(
+                new ProjectTag
+                {
+                    TagId = 3,
+                    ProjectId = 1
+                },
+                new ProjectTag
+                {
+                    TagId = 4,
+                    ProjectId = 1
+                },
+                new ProjectTag
+                {
+                    TagId = 5,
+                    ProjectId = 1
+                },
+                new ProjectTag
+                {
+                    TagId = 1,
+                    ProjectId = 2
+                },
+                new ProjectTag
+                {
+                    TagId = 2,
+                    ProjectId = 2
+                },
+                new ProjectTag
+                {
+                    TagId = 5,
+                    ProjectId = 2
+                }
+            );
 
             // auto load any navigation properties using this pattern
             modelBuilder.Entity<Project>().Navigation(p => p.Assets).AutoInclude();
@@ -153,32 +159,27 @@ namespace ModelCabinet.Server.Data
             // Ensures each slug is unique
             modelBuilder.Entity<Project>().HasIndex(p => p.Slug).IsUnique();
 
-
             modelBuilder.Entity<Tag>().HasIndex(t => t.TagName).IsUnique();
-            //modelBuilder.Entity<Tag>().Navigation(t => t.Assets).AutoInclude();
-            //modelBuilder.Entity<Tag>().Navigation(t => t.Projects).AutoInclude();
 
-            // This Does Link the Tags, but it doesn't pull them automatically.
-            // Changing it to a Navigation with an auto include gives me an "Cant Create A Context" error.
+            modelBuilder.Entity<AssetTag>()
+                .HasOne(at => at.Asset)
+                .WithMany(a => a.Tags)
+                .HasForeignKey(t => t.AssetId);
 
+            modelBuilder.Entity<AssetTag>()
+                .HasOne(at => at.Tag)
+                .WithMany(a => a.AssetTags)
+                .HasForeignKey(t => t.TagId);
 
-            //modelBuilder.Entity<AssetTag>()
-            //    .HasOne<Asset>(a => a.Asset)
-            //    .WithMany(at => at.AssetTags)
-            //    .HasForeignKey(at => at.AssetId);
-            //modelBuilder.Entity<AssetTag>()
-            //    .HasOne<Tag>(t => t.Tag)
-            //    .WithMany(t => t.AssetTags)
-            //    .HasForeignKey(at => at.TagId);
+            modelBuilder.Entity<ProjectTag>()
+                .HasOne(at => at.Project)
+                .WithMany(a => a.Tags)
+                .HasForeignKey(t => t.ProjectId);
 
-            //modelBuilder.Entity<ProjectTag>()
-            //    .HasOne<Project>(pt => pt.Project)
-            //    .WithMany(pt => pt.ProjectTags)
-            //    .HasForeignKey(pt => pt.ProjectId);
-            //modelBuilder.Entity<ProjectTag>()
-            //    .HasOne<Tag>(t => t.Tag)
-            //    .WithMany(t => t.ProjectTags)
-            //    .HasForeignKey(pt => pt.TagId);
+            modelBuilder.Entity<ProjectTag>()
+                .HasOne(at => at.Tag)
+                .WithMany(a => a.ProjectTags)
+                .HasForeignKey(t => t.TagId);
         }
 
         public DbSet<ModelCabinet.Server.Models.Project> Project { get; set; } = default!;

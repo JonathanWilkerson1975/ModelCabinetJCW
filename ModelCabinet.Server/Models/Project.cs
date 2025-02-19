@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace ModelCabinet.Server.Models
 {
@@ -17,7 +19,10 @@ namespace ModelCabinet.Server.Models
         [RegularExpression("^[^\\s]+$")]
         public string Slug { get; set; }
         public string ShortDescription { get; set; }
-        public virtual ICollection<Tag> Tags { get; set; }
+        [JsonIgnore]
+        public virtual ICollection<ProjectTag> Tags { get; } = new HashSet<ProjectTag>();
+        [NotMapped]
+        public IList<Tag> TagsList => Tags.Select(t => t.Tag).ToList();
 
     }
 }

@@ -10,6 +10,7 @@ export class TagLabelComponent {
   @Input() tag: Tag = {
     tagId: 0,
     tagName: "",
+    color:"000000",
     projectTags: [],
     assetTags: []
   }

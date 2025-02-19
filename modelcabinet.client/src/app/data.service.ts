@@ -3,6 +3,7 @@ import { Injectable } from "@angular/core";
 import { BehaviorSubject, Observable, tap } from "rxjs";
 import { Project } from "./Models/project";
 import { Asset } from "./Models/asset";
+//import { Tag } from "./Models/tag";
 
 
 // Interface for the paginated response from the API
@@ -141,4 +142,10 @@ export class DataService {
       this.asset$.next(data);
     });
   }
+
+  //createTag(tag: Tag): Observable<Tag> {
+  //  this.http.post<Tag>(`/api/Tags/`, tag).subscribe(data => {
+  //    return data;
+  //  });
+  //}
 }

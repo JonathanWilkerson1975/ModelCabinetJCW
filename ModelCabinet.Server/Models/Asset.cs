@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace ModelCabinet.Server.Models
 {
@@ -12,6 +13,9 @@ namespace ModelCabinet.Server.Models
         public long FileSize { get; set; }
         [ForeignKey("Project")]
         public int ProjectId { get; set; }
-        public virtual ICollection<Tag> Tags { get; set; }
+        [JsonIgnore]
+        public virtual ICollection<AssetTag> Tags { get; } = new HashSet<AssetTag>();
+        [NotMapped]
+        public IList<Tag> TagsList => Tags.Select(t => t.Tag).ToList();
     }
 }
