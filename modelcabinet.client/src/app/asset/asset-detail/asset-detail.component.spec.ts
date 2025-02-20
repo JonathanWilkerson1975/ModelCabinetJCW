@@ -17,7 +17,7 @@ describe('AssetDetailComponent', () => {
     // global arrange
 
     // To specify the value returned by a mock service:
-    // mockDataService.getAllAssets.and.returnValue('toast');
+    // mockDataService.getAllAssets.and.returnValue(new Asset('toast'));
 
     await TestBed.configureTestingModule({
       declarations: [
@@ -51,4 +51,31 @@ describe('AssetDetailComponent', () => {
     // expect(component.dataGatheredByMockService).toEqual('blah');
   });
 
+  // Left this commented test to show how to test a function on a component.
+  //
+  //it('should return a petabyte', () => {
+  //  //arrange
+  //  const expectation = "1 PB";
+
+  //  // act
+  //  const test = component.formatFileSize(100000000000000);
+
+  //  // assert
+  //  expect(test).toBe(expectation);
+  //});
+
+  it('should have the correct title displayed in the template', () => {
+    // arrange
+    const title = "Toast";
+    const element: HTMLElement = fixture.nativeElement;
+
+    // act
+    component.asset.name = title;
+    fixture.detectChanges();
+
+    const result = element.querySelector("h1")!;
+
+    // assert
+    expect(result.textContent).toEqual(title);
+  });
 });
