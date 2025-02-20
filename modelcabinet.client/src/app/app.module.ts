@@ -19,6 +19,7 @@ import { FileSizePipe } from "./Pipes/file-size.pipe";
 import { AboutModelCabinetComponent } from "./About-ModelCabinet/About-ModelCabinet.component";
 import { ViewportComponent } from "./viewport/viewport.component";
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     DeveloperCardComponent,
     ContributorsComponent,
     FileSizePipe,
-    ViewportComponent
+    ViewportComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
