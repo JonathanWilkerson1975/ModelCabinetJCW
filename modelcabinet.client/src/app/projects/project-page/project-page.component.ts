@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { Project } from '../../Models/project';
+import { Asset } from '../../Models/asset';
 import { DataService } from '../../data.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -12,6 +13,34 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class ProjectPageComponent implements OnInit {
   projid = 0;
   project: BehaviorSubject<Project>;
+
+  selectedAsset: Asset | null = null;
+
+  setAsset(asset: Asset) {
+    this.selectedAsset = { ...asset };
+  }
+
+  saveAsset() {
+    if (!this.selectedAsset || !this.project.value) return;
+
+    const updatedAsset = { ...this.selectedAsset, dateUpdated: new Date() };
+
+    this.data.updateAssetById(updatedAsset.assetId, updatedAsset)
+
+    const currentProject = this.project.value;
+
+    const updatedAssets = currentProject.assets.map(asset =>
+      asset.assetId === updatedAsset.assetId ? updatedAsset : asset
+    );
+
+    // Emit the updated project state
+    this.project.next({ ...currentProject, assets: updatedAssets });
+
+    // Reset selected asset back to nothing:
+    this.selectedAsset = null;
+  }
+
+
 
   constructor(private route: ActivatedRoute, private data: DataService, private router: Router) {
     this.project = this.data.project$;

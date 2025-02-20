@@ -1,0 +1,86 @@
+<div class="container">
+  <div class="row justify-content-center mt-5">
+    <div class="col-12 col-md-6 col-lg-4">
+      <div class="card shadow">
+        <div class="card-body p-4">
+          <!-- Header -->
+          <h2 class="text-center mb-4">Sign in to your account</h2>
+
+          <!-- Login Form -->
+          <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <!-- Email Field -->
+            <div class="mb-3">
+              <label for="email" class="form-label">Email address</label>
+              <input id="email"
+                     type="email"
+                     formControlName="email"
+                     class="form-control"
+                     [ngClass]="{'is-invalid': showError('email')}"
+                     placeholder="name@example.com"
+                     autocomplete="email">
+              <div class="invalid-feedback" *ngIf="showError('email')">
+                <span *ngIf="loginForm.get('email')?.errors?.['required']">Email is required</span>
+                <span *ngIf="loginForm.get('email')?.errors?.['email']">Please enter a valid email</span>
+              </div>
+            </div>
+
+            <!-- Password Field -->
+            <div class="mb-3">
+              <label for="password" class="form-label">Password</label>
+              <div class="input-group">
+                <input id="password"
+                       [type]="showPassword ? 'text' : 'password'"
+                       formControlName="password"
+                       class="form-control"
+                       [ngClass]="{'is-invalid': showError('password')}"
+                       placeholder="Password"
+                       autocomplete="current-password">
+                <button class="btn btn-outline-secondary"
+                        type="button"
+                        (click)="togglePasswordVisibility()"
+                        [attr.aria-label]="showPassword ? 'Hide password' : 'Show password'">
+                  <i [class]="showPassword ? 'bi bi-eye-slash' : 'bi bi-eye'"></i>
+                </button>
+                <div class="invalid-feedback" *ngIf="showError('password')">
+                  Password is required
+                </div>
+              </div>
+            </div>
+
+            <!-- Remember Me -->
+            <div class="mb-3 form-check">
+              <input type="checkbox"
+                     class="form-check-input"
+                     id="remember-me"
+                     formControlName="rememberMe">
+              <label class="form-check-label" for="remember-me">
+                Remember me
+              </label>
+            </div>
+
+            <!-- Error Message -->
+            <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+              {{ errorMessage }}
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit"
+                    class="btn btn-primary w-100 mb-3 d-flex align-items-center justify-content-center gap-2"
+                    [disabled]="loginForm.invalid || isLoading">
+              <i class="bi bi-lock"></i>
+
+              {{ isLoading ? 'Signing in...' : 'Sign in' }}
+            </button>
+
+            <!-- Register Link -->
+            <div class="text-center">
+              <a routerLink="/register" class="text-decoration-none">
+                Don't have an account? Sign up
+              </a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

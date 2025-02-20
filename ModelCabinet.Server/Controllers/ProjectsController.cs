@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -10,6 +11,7 @@ using ModelCabinet.Server.Models;
 
 namespace ModelCabinet.Server.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class ProjectsController : ControllerBase
@@ -22,6 +24,7 @@ namespace ModelCabinet.Server.Controllers
         }
 
         // GET: api/Projects
+        [AllowAnonymous]
         [HttpGet]
         public async Task<ActionResult<object>> GetProject([FromQuery] int page = 1, [FromQuery] int pageSize = 8)
         {
@@ -32,7 +35,7 @@ namespace ModelCabinet.Server.Controllers
             var totalPages = (int)Math.Ceiling((double)totalProjects / pageSize);
 
             var projects = await _context.Project
-                .OrderByDescending(p => p.ModifiedDate) // Most recent first
+                .OrderBy(p => p.ProjectId) // Ascending by ProjectId
                 .Skip((page - 1) * pageSize)
                 .Take(pageSize)
                 .ToListAsync();
@@ -48,6 +51,7 @@ namespace ModelCabinet.Server.Controllers
         }
 
         // GET: api/Projects/5
+        [AllowAnonymous]
         [HttpGet("{id}")]
         public async Task<ActionResult<Project>> GetProject(int id)
         {

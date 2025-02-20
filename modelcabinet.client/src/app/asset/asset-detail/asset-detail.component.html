@@ -1,4 +1,3 @@
-
 <div>
   <h1>{{asset.name}}</h1>
 
@@ -9,13 +8,12 @@
     Date Updated: {{asset.dateUpdated | date:'short'}}
   </p>
   <p>
-    File Size: {{ formatFileSize(asset.fileSize) }}
+    File Size: {{ asset.fileSize | fileSize }}
   </p>
-  <a class="btn btn-primary" routerLink="/Projects/{{asset.projectId}}">
-    View Project
-  </a>
+  <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editAssetModal" (click)="requestEdit()">
+    Edit Asset
+  </button>
 </div>
-
 
 
 <a class="dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Show Raw Data</a>
