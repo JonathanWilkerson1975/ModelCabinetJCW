@@ -13,5 +13,9 @@ interface Developer {
 })
 
 export class DeveloperCardComponent {
-  @Input() developer!: Developer;
+  @Input() developer: Developer = {
+      login: '',
+      avatar_url: '',
+      html_url: ''
+  };
 }
