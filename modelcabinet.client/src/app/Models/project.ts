@@ -13,5 +13,13 @@ export interface Project {
   assets: Asset[],
   shortDescription: string,
   slug: string,
-  projectTags: Tag[]
+  projectTags: ProjectTag[]
+}
+
+// Used to Match the structure in the backend
+export interface ProjectTag {
+  projectId: number,
+  tagId: number,
+  project: Project,
+  tag: Tag
 }

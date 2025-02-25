@@ -12,7 +12,7 @@ using ModelCabinet.Server.Data;
 namespace ModelCabinet.Server.Migrations
 {
     [DbContext(typeof(ModelCabinetContext))]
-    [Migration("20250219074316_AddedTagging")]
+    [Migration("20250219181225_AddedTagging")]
     partial class AddedTagging
     {
         /// <inheritdoc />
@@ -310,8 +310,8 @@ namespace ModelCabinet.Server.Migrations
                         new
                         {
                             AssetId = 1,
-                            DateCreation = new DateTime(2025, 2, 18, 23, 43, 15, 874, DateTimeKind.Local).AddTicks(5553),
-                            DateUpdated = new DateTime(2025, 2, 18, 23, 43, 15, 874, DateTimeKind.Local).AddTicks(5608),
+                            DateCreation = new DateTime(2025, 2, 19, 10, 12, 24, 610, DateTimeKind.Local).AddTicks(1432),
+                            DateUpdated = new DateTime(2025, 2, 19, 10, 12, 24, 610, DateTimeKind.Local).AddTicks(1488),
                             FileSize = 446684L,
                             Name = "Test Asset",
                             Path = "Assets\\TestProject\\HelloWorld.stl",
@@ -320,8 +320,8 @@ namespace ModelCabinet.Server.Migrations
                         new
                         {
                             AssetId = 2,
-                            DateCreation = new DateTime(2025, 2, 18, 23, 43, 15, 874, DateTimeKind.Local).AddTicks(5614),
-                            DateUpdated = new DateTime(2025, 2, 18, 23, 43, 15, 874, DateTimeKind.Local).AddTicks(5615),
+                            DateCreation = new DateTime(2025, 2, 19, 10, 12, 24, 610, DateTimeKind.Local).AddTicks(1493),
+                            DateUpdated = new DateTime(2025, 2, 19, 10, 12, 24, 610, DateTimeKind.Local).AddTicks(1494),
                             FileSize = 11285384L,
                             Name = "Benchy",
                             Path = "Assets\\TestProject\\3DBenchy.stl",
@@ -348,6 +348,21 @@ namespace ModelCabinet.Server.Migrations
                         {
                             AssetId = 2,
                             TagId = 1
+                        },
+                        new
+                        {
+                            AssetId = 2,
+                            TagId = 5
+                        },
+                        new
+                        {
+                            AssetId = 2,
+                            TagId = 2
+                        },
+                        new
+                        {
+                            AssetId = 1,
+                            TagId = 4
                         },
                         new
                         {
@@ -600,13 +615,13 @@ namespace ModelCabinet.Server.Migrations
             modelBuilder.Entity("ModelCabinet.Server.Models.AssetTag", b =>
                 {
                     b.HasOne("ModelCabinet.Server.Models.Asset", "Asset")
-                        .WithMany("Tags")
+                        .WithMany("AssetTags")
                         .HasForeignKey("AssetId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("ModelCabinet.Server.Models.Tag", "Tag")
-                        .WithMany("AssetTags")
+                        .WithMany()
                         .HasForeignKey("TagId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -619,13 +634,13 @@ namespace ModelCabinet.Server.Migrations
             modelBuilder.Entity("ModelCabinet.Server.Models.ProjectTag", b =>
                 {
                     b.HasOne("ModelCabinet.Server.Models.Project", "Project")
-                        .WithMany("Tags")
+                        .WithMany("ProjectTags")
                         .HasForeignKey("ProjectId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("ModelCabinet.Server.Models.Tag", "Tag")
-                        .WithMany("ProjectTags")
+                        .WithMany()
                         .HasForeignKey("TagId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -637,19 +652,12 @@ namespace ModelCabinet.Server.Migrations
 
             modelBuilder.Entity("ModelCabinet.Server.Models.Asset", b =>
                 {
-                    b.Navigation("Tags");
+                    b.Navigation("AssetTags");
                 });
 
             modelBuilder.Entity("ModelCabinet.Server.Models.Project", b =>
                 {
                     b.Navigation("Assets");
-
-                    b.Navigation("Tags");
-                });
-
-            modelBuilder.Entity("ModelCabinet.Server.Models.Tag", b =>
-                {
-                    b.Navigation("AssetTags");
 
                     b.Navigation("ProjectTags");
                 });

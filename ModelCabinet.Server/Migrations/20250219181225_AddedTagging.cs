@@ -80,14 +80,14 @@ namespace ModelCabinet.Server.Migrations
                 keyColumn: "AssetId",
                 keyValue: 1,
                 columns: new[] { "DateCreation", "DateUpdated" },
-                values: new object[] { new DateTime(2025, 2, 18, 23, 43, 15, 874, DateTimeKind.Local).AddTicks(5553), new DateTime(2025, 2, 18, 23, 43, 15, 874, DateTimeKind.Local).AddTicks(5608) });
+                values: new object[] { new DateTime(2025, 2, 19, 10, 12, 24, 610, DateTimeKind.Local).AddTicks(1432), new DateTime(2025, 2, 19, 10, 12, 24, 610, DateTimeKind.Local).AddTicks(1488) });
 
             migrationBuilder.UpdateData(
                 table: "Asset",
                 keyColumn: "AssetId",
                 keyValue: 2,
                 columns: new[] { "DateCreation", "DateUpdated" },
-                values: new object[] { new DateTime(2025, 2, 18, 23, 43, 15, 874, DateTimeKind.Local).AddTicks(5614), new DateTime(2025, 2, 18, 23, 43, 15, 874, DateTimeKind.Local).AddTicks(5615) });
+                values: new object[] { new DateTime(2025, 2, 19, 10, 12, 24, 610, DateTimeKind.Local).AddTicks(1493), new DateTime(2025, 2, 19, 10, 12, 24, 610, DateTimeKind.Local).AddTicks(1494) });
 
             migrationBuilder.InsertData(
                 table: "Tag",
@@ -107,8 +107,11 @@ namespace ModelCabinet.Server.Migrations
                 columns: new[] { "AssetId", "TagId" },
                 values: new object[,]
                 {
+                    { 1, 4 },
                     { 1, 6 },
-                    { 2, 1 }
+                    { 2, 1 },
+                    { 2, 2 },
+                    { 2, 5 }
                 });
 
             migrationBuilder.InsertData(

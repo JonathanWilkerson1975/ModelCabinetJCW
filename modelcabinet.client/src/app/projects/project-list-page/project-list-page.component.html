@@ -5,13 +5,17 @@
       <span>{{ ProjectItem.shortDescription }}</span>
       <span><b>Last Modified:</b><br /><span class="h5">{{ ProjectItem.modifiedDate | date:'short' }}</span></span>
       <span><b>Author:</b><br /><span class="h5">{{ ProjectItem.author }}</span></span>
+      <b class="col">Tags:</b>
+      <div class="row row-cols-auto">
+        <app-tag-label class="col" *ngFor="let projectTag of ProjectItem.projectTags" [tagLabel]="projectTag.tag"></app-tag-label>
+      </div>
       <div class="row mt-3">
         <div class="col">
           <a routerLink="{{ ProjectItem.projectId }}" class="card-link btn btn-primary">View Project</a>
         </div>
         <!--<div class="col">
-          <a class="btn btn-secondary"><i class="bi bi-share"></i></a>
-        </div>-->
+      <a class="btn btn-secondary"><i class="bi bi-share"></i></a>
+    </div>-->
       </div>
     </div>
   </div>

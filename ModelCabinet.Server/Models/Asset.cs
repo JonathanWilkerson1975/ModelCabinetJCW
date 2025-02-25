@@ -13,9 +13,6 @@ namespace ModelCabinet.Server.Models
         public long FileSize { get; set; }
         [ForeignKey("Project")]
         public int ProjectId { get; set; }
-        [JsonIgnore]
-        public virtual ICollection<AssetTag> Tags { get; } = new HashSet<AssetTag>();
-        [NotMapped]
-        public IList<Tag> TagsList => Tags.Select(t => t.Tag).ToList();
+        public virtual ICollection<AssetTag> AssetTags { get; set; }
     }
 }

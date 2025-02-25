@@ -19,10 +19,6 @@ namespace ModelCabinet.Server.Models
         [RegularExpression("^[^\\s]+$")]
         public string Slug { get; set; }
         public string ShortDescription { get; set; }
-        [JsonIgnore]
-        public virtual ICollection<ProjectTag> Tags { get; } = new HashSet<ProjectTag>();
-        [NotMapped]
-        public IList<Tag> TagsList => Tags.Select(t => t.Tag).ToList();
-
+        public virtual ICollection<ProjectTag> ProjectTags { get; set; }
     }
 }

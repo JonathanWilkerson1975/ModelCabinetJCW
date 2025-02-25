@@ -115,6 +115,21 @@ namespace ModelCabinet.Server.Data
                 },
                 new AssetTag
                 {
+                    AssetId = 2,
+                    TagId = 5
+                },
+                new AssetTag
+                {
+                    AssetId = 2,
+                    TagId = 2
+                },
+                new AssetTag
+                {
+                    AssetId = 1,
+                    TagId = 4
+                },
+                new AssetTag
+                {
                     AssetId = 1,
                     TagId = 6
                 }
@@ -155,31 +170,17 @@ namespace ModelCabinet.Server.Data
 
             // auto load any navigation properties using this pattern
             modelBuilder.Entity<Project>().Navigation(p => p.Assets).AutoInclude();
-
+            modelBuilder.Entity<Project>().Navigation(p => p.ProjectTags).AutoInclude();
             // Ensures each slug is unique
             modelBuilder.Entity<Project>().HasIndex(p => p.Slug).IsUnique();
 
+            modelBuilder.Entity<Asset>().Navigation(p => p.AssetTags).AutoInclude();
+
+            // Makes Each Tag Name Unique
             modelBuilder.Entity<Tag>().HasIndex(t => t.TagName).IsUnique();
 
-            modelBuilder.Entity<AssetTag>()
-                .HasOne(at => at.Asset)
-                .WithMany(a => a.Tags)
-                .HasForeignKey(t => t.AssetId);
-
-            modelBuilder.Entity<AssetTag>()
-                .HasOne(at => at.Tag)
-                .WithMany(a => a.AssetTags)
-                .HasForeignKey(t => t.TagId);
-
-            modelBuilder.Entity<ProjectTag>()
-                .HasOne(at => at.Project)
-                .WithMany(a => a.Tags)
-                .HasForeignKey(t => t.ProjectId);
-
-            modelBuilder.Entity<ProjectTag>()
-                .HasOne(at => at.Tag)
-                .WithMany(a => a.ProjectTags)
-                .HasForeignKey(t => t.TagId);
+            modelBuilder.Entity<ProjectTag>().Navigation(pt => pt.Tag).AutoInclude();
+            modelBuilder.Entity<AssetTag>().Navigation(at => at.Tag).AutoInclude();
         }
 
         public DbSet<ModelCabinet.Server.Models.Project> Project { get; set; } = default!;
