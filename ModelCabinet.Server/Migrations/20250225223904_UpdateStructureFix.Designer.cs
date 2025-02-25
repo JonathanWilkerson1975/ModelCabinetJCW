@@ -12,8 +12,8 @@ using ModelCabinet.Server.Data;
 namespace ModelCabinet.Server.Migrations
 {
     [DbContext(typeof(ModelCabinetContext))]
-    [Migration("20250219211223_UpdateStructure")]
-    partial class UpdateStructure
+    [Migration("20250225223904_UpdateStructureFix")]
+    partial class UpdateStructureFix
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -310,8 +310,8 @@ namespace ModelCabinet.Server.Migrations
                         new
                         {
                             AssetId = 1,
-                            DateCreation = new DateTime(2025, 2, 19, 13, 12, 22, 779, DateTimeKind.Local).AddTicks(719),
-                            DateUpdated = new DateTime(2025, 2, 19, 13, 12, 22, 779, DateTimeKind.Local).AddTicks(776),
+                            DateCreation = new DateTime(2025, 2, 25, 14, 39, 3, 727, DateTimeKind.Local).AddTicks(5697),
+                            DateUpdated = new DateTime(2025, 2, 25, 14, 39, 3, 727, DateTimeKind.Local).AddTicks(5756),
                             FileSize = 446684L,
                             Name = "Test Asset",
                             Path = "Assets\\TestProject\\HelloWorld.stl",
@@ -320,8 +320,8 @@ namespace ModelCabinet.Server.Migrations
                         new
                         {
                             AssetId = 2,
-                            DateCreation = new DateTime(2025, 2, 19, 13, 12, 22, 779, DateTimeKind.Local).AddTicks(782),
-                            DateUpdated = new DateTime(2025, 2, 19, 13, 12, 22, 779, DateTimeKind.Local).AddTicks(783),
+                            DateCreation = new DateTime(2025, 2, 25, 14, 39, 3, 727, DateTimeKind.Local).AddTicks(5760),
+                            DateUpdated = new DateTime(2025, 2, 25, 14, 39, 3, 727, DateTimeKind.Local).AddTicks(5761),
                             FileSize = 11285384L,
                             Name = "Benchy",
                             Path = "Assets\\TestProject\\3DBenchy.stl",

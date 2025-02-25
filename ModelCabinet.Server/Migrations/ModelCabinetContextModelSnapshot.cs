@@ -307,8 +307,8 @@ namespace ModelCabinet.Server.Migrations
                         new
                         {
                             AssetId = 1,
-                            DateCreation = new DateTime(2025, 2, 19, 13, 11, 57, 9, DateTimeKind.Local).AddTicks(781),
-                            DateUpdated = new DateTime(2025, 2, 19, 13, 11, 57, 9, DateTimeKind.Local).AddTicks(817),
+                            DateCreation = new DateTime(2025, 2, 25, 14, 39, 3, 727, DateTimeKind.Local).AddTicks(5697),
+                            DateUpdated = new DateTime(2025, 2, 25, 14, 39, 3, 727, DateTimeKind.Local).AddTicks(5756),
                             FileSize = 446684L,
                             Name = "Test Asset",
                             Path = "Assets\\TestProject\\HelloWorld.stl",
@@ -317,8 +317,8 @@ namespace ModelCabinet.Server.Migrations
                         new
                         {
                             AssetId = 2,
-                            DateCreation = new DateTime(2025, 2, 19, 13, 11, 57, 9, DateTimeKind.Local).AddTicks(820),
-                            DateUpdated = new DateTime(2025, 2, 19, 13, 11, 57, 9, DateTimeKind.Local).AddTicks(822),
+                            DateCreation = new DateTime(2025, 2, 25, 14, 39, 3, 727, DateTimeKind.Local).AddTicks(5760),
+                            DateUpdated = new DateTime(2025, 2, 25, 14, 39, 3, 727, DateTimeKind.Local).AddTicks(5761),
                             FileSize = 11285384L,
                             Name = "Benchy",
                             Path = "Assets\\TestProject\\3DBenchy.stl",
