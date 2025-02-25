@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+
 
 @Component({
   selector: 'app-viewport',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrl: './viewport.component.css'
 })
 export class ViewportComponent {
+
+  @Input() path: string = "";
 
 }
