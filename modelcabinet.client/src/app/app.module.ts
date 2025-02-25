@@ -1,4 +1,4 @@
-import { provideHttpClient } from "@angular/common/http";
+import { HttpClientModule, provideHttpClient } from "@angular/common/http";
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { AppRoutingModule } from "./app-routing.module";
@@ -45,6 +45,7 @@ import { LoginComponent } from './login/login.component';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     FormsModule, // I added this for the asset edit form modal - Clarissa
     ReactiveFormsModule // For Project Edit Component
