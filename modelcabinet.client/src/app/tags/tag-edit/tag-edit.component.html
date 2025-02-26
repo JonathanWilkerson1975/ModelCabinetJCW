@@ -1,1 +1,23 @@
-<p>tag-edit works!</p>
+<div class="container text-center">
+  <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5">
+    <div class="col-2 row rounded-pill bg-body-secondary m-1 px-0" *ngFor="let tag of alltags">
+      <app-tag-label class="col-8 ps-0 pe-1" [tagLabel]="tag"></app-tag-label>
+      <div class="col-4 ps-0 row pe-0">
+        <button class="badge col-6 rounded-pill text-bg-danger" (click)="deleteTag(tag)">x</button>
+        <button class="badge col-6 rounded-pill text-bg-info" (click)="selectTagToEdit(tag)"><i class="bi bi-pencil-square"></i></button>
+      </div>
+    </div>
+  </div>
+  <h2>{{isEditing ? 'Edit a' : 'Create a new'}} Tag</h2>
+  <div>
+    <form [formGroup]="tagForm" (ngSubmit)="onSubmit()">
+      <label class="fw-bold">Tag Name</label>
+      <input formControlName="tagName" name="tagName" class="form-control" />
+      <label class="fw-bold">Tag Color</label>
+      <input formControlName="color" name="color" class="form-control" />
+      <button type="submit" class="btn btn-success">{{isEditing ? 'Update ' : 'Create '}} Tag</button>
+    </form>
+  </div>
+</div>
+
+

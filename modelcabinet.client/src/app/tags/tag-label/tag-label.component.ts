@@ -12,5 +12,4 @@ export class TagLabelComponent {
     tagName: "BOGUS DATA",
     color:"fc7f7f"
   }
-  @Input() isEditing: boolean = false;
 }

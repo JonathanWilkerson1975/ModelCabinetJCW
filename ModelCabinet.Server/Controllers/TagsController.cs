@@ -93,7 +93,6 @@ namespace ModelCabinet.Server.Controllers
             {
                 return NotFound();
             }
-
             _context.Tag.Remove(tag);
             await _context.SaveChangesAsync();
 
