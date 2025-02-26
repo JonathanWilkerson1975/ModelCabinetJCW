@@ -3,6 +3,8 @@ import { Injectable } from "@angular/core";
 import { BehaviorSubject, Observable, tap } from "rxjs";
 import { Project } from "./Models/project";
 import { Asset } from "./Models/asset";
+import { Tag } from "./Models/tag";
+//import { Tag } from "./Models/tag";
 
 
 // Interface for the paginated response from the API
@@ -30,7 +32,8 @@ export class DataService {
     version: '',
     assets: [],
     shortDescription: '',
-    slug: ''
+    slug: '',
+    projectTags: []
   });
 
   assets$: BehaviorSubject<Asset[]> = new BehaviorSubject<Asset[]>([]);
@@ -41,7 +44,15 @@ export class DataService {
     dateCreation: new Date,
     dateUpdated: new Date,
     fileSize: 0,
-    projectId: 0
+    projectId: 0,
+    assetTags: []
+  });
+
+  tags$: BehaviorSubject<Tag[]> = new BehaviorSubject<Tag[]>([]);
+  tag$: BehaviorSubject<Tag> = new BehaviorSubject<Tag>({
+    tagId: -1,
+    tagName: 'BOGUS DATA',
+    color: 'bcb502'
   });
 
   // Pagination state management
@@ -137,6 +148,43 @@ export class DataService {
   deleteAssetById(id: number) {
     this.http.delete<Asset>(`/api/Assets/${id}`).subscribe(data => {
       this.asset$.next(data);
+    });
+  }
+
+  getAllTags() {
+    this.http.get<Tag[]>(`/api/Tags`).subscribe(data => {
+      this.tags$.next(data);
+    });
+  }
+
+  createTag(tag: Tag) {
+    const newTag = {
+      tagName: tag.tagName,
+      color: tag.color
+    }
+    return this.http.post<Tag>(`/api/Tags`, newTag).subscribe(data => {
+      this.tag$.next(data);
+      return data;
+    });
+  }
+
+  updateTag(tag: Tag) {
+    return this.updateTagById(tag, tag.tagId);
+  }
+
+  updateTagById(tag: Tag, id:number) {
+    return this.http.put<Tag>(`/api/Tags/${id}`, tag).subscribe(data => {
+      return data;
+    });
+  }
+
+  deleteTag(tag: Tag) {
+    return this.deleteTagById(tag.tagId);
+  }
+
+  deleteTagById(id: number) {
+    this.http.delete<Tag>(`/api/Tags/${id}`).subscribe(data => {
+      return data;
     });
   }
 }

@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace ModelCabinet.Server.Models
 {
@@ -12,5 +13,6 @@ namespace ModelCabinet.Server.Models
         public long FileSize { get; set; }
         [ForeignKey("Project")]
         public int ProjectId { get; set; }
+        public virtual ICollection<AssetTag> AssetTags { get; set; }
     }
 }
