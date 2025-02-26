@@ -68,15 +68,123 @@ namespace ModelCabinet.Server.Data
                 }
             );
 
+            modelBuilder.Entity<Tag>().HasData(
+                new Tag
+                {
+                    TagId = 1,
+                    TagName = "Stress Test",
+                    Color = "fae033"
+                },
+                new Tag
+                {
+                    TagId = 2,
+                    TagName = "D&D",
+                    Color = "df0000"
+                },
+                new Tag
+                {
+                    TagId = 3,
+                    TagName = "Pathfinder",
+                    Color = "40E0D0"
+                },
+                new Tag
+                {
+                    TagId = 4,
+                    TagName = "Low Detail",
+                    Color = "afafaf"
+                },
+                new Tag
+                {
+                    TagId = 5,
+                    TagName = "High Detail",
+                    Color = "3f3f3f"
+                },
+                new Tag
+                {
+                    TagId = 6,
+                    TagName = "Video Game",
+                    Color = "23a300"
+                }
+            );
+
+            modelBuilder.Entity<AssetTag>().HasData(
+                new AssetTag
+                {
+                    AssetId = 2,
+                    TagId = 1
+                },
+                new AssetTag
+                {
+                    AssetId = 2,
+                    TagId = 5
+                },
+                new AssetTag
+                {
+                    AssetId = 2,
+                    TagId = 2
+                },
+                new AssetTag
+                {
+                    AssetId = 1,
+                    TagId = 4
+                },
+                new AssetTag
+                {
+                    AssetId = 1,
+                    TagId = 6
+                }
+            );
+
+            modelBuilder.Entity<ProjectTag>().HasData(
+                new ProjectTag
+                {
+                    TagId = 3,
+                    ProjectId = 1
+                },
+                new ProjectTag
+                {
+                    TagId = 4,
+                    ProjectId = 1
+                },
+                new ProjectTag
+                {
+                    TagId = 5,
+                    ProjectId = 1
+                },
+                new ProjectTag
+                {
+                    TagId = 1,
+                    ProjectId = 2
+                },
+                new ProjectTag
+                {
+                    TagId = 2,
+                    ProjectId = 2
+                },
+                new ProjectTag
+                {
+                    TagId = 5,
+                    ProjectId = 2
+                }
+            );
 
             // auto load any navigation properties using this pattern
             modelBuilder.Entity<Project>().Navigation(p => p.Assets).AutoInclude();
-
+            modelBuilder.Entity<Project>().Navigation(p => p.ProjectTags).AutoInclude();
             // Ensures each slug is unique
             modelBuilder.Entity<Project>().HasIndex(p => p.Slug).IsUnique();
+
+            modelBuilder.Entity<Asset>().Navigation(p => p.AssetTags).AutoInclude();
+
+            // Makes Each Tag Name Unique
+            modelBuilder.Entity<Tag>().HasIndex(t => t.TagName).IsUnique();
+
+            modelBuilder.Entity<ProjectTag>().Navigation(pt => pt.Tag).AutoInclude();
+            modelBuilder.Entity<AssetTag>().Navigation(at => at.Tag).AutoInclude();
         }
 
         public DbSet<ModelCabinet.Server.Models.Project> Project { get; set; } = default!;
         public DbSet<ModelCabinet.Server.Models.Asset> Asset { get; set; } = default!;
+        public DbSet<ModelCabinet.Server.Models.Tag> Tag { get; set; } = default!;
     }
 }
