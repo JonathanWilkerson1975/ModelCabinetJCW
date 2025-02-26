@@ -1,4 +1,4 @@
-import { provideHttpClient } from "@angular/common/http";
+import { HttpClientModule, provideHttpClient } from "@angular/common/http";
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { AppRoutingModule } from "./app-routing.module";
@@ -21,6 +21,7 @@ import { ViewportComponent } from "./viewport/viewport.component";
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { TagLabelComponent } from './tags/tag-label/tag-label.component';
 import { TagEditComponent } from './tags/tag-edit/tag-edit.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -44,10 +45,12 @@ import { TagEditComponent } from './tags/tag-edit/tag-edit.component';
     ViewportComponent,
     ContributorsComponent,
     TagLabelComponent,
-    TagEditComponent
+    TagEditComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     FormsModule, // I added this for the asset edit form modal - Clarissa
     ReactiveFormsModule // For Project Edit Component
