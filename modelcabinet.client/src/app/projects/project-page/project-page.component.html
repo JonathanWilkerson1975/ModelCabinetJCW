@@ -23,6 +23,10 @@
           <span><b>Modified Date:</b><br /><span class="h5">{{ (project | async)!.modifiedDate | date:'short' }}</span></span>
         </div>
       </div>
+      <b class="col">Tags:</b>
+      <div class="row row-cols-auto justify-content-md-center">
+        <app-tag-label class="col" *ngFor="let projectTag of (project | async)!.projectTags" [tagLabel]="projectTag.tag"></app-tag-label>
+      </div>
     </div>
     <span class="col-12 text-center h5"><b>Assets Included In Project:</b></span>
     <div class="col-12">
@@ -57,6 +61,9 @@
             <label for="assetSize" class="form-label">File Size</label>
             <input type="number" class="form-control" id="assetSize" [(ngModel)]="selectedAsset.fileSize" name="assetSize" />
           </div>
+        </form>
+        <!--Tagging Edits-->
+        <form class="form-floating">
         </form>
       </div>
       <div class="modal-footer">
