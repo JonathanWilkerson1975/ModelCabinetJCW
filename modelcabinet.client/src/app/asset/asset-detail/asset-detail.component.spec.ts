@@ -11,7 +11,7 @@ describe('AssetDetailComponent', () => {
   let fixture: ComponentFixture<AssetDetailComponent>;
 
   // create the mock service
-  let mockDataService = jasmine.createSpyObj(['getAllAssets']);
+  const mockDataService = jasmine.createSpyObj(['getAllAssets']);
 
   beforeEach(async () => {
     // global arrange

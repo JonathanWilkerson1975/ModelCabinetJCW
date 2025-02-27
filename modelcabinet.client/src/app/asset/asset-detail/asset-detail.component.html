@@ -10,6 +10,10 @@
   <p>
     File Size: {{ asset.fileSize | fileSize }}
   </p>
+  <b class="col">Tags:</b>
+  <div class="row row-cols-auto justify-content-md-center">
+    <app-tag-label class="col" *ngFor="let assetTag of asset.assetTags" [tagLabel]="assetTag.tag"></app-tag-label>
+  </div>
   <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editAssetModal" (click)="requestEdit()">
     Edit Asset
   </button>
