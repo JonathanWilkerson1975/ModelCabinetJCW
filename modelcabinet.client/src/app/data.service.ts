@@ -70,21 +70,23 @@ export class DataService {
 
 
 
-  getAllProjects(page?: number, pageSize?: number): void {
+  getAllProjects(page: number = 1, pageSize: number = 8): Observable<ProjectsResponse> {
     // Create HTTP parameters for pagination
     const params = new HttpParams()
-      .set('page', page?.toString() || '1') // Page number to start on
-      .set('pageSize', pageSize?.toString() || '8'); // Number of projects per page
-
+      .set('page', page.toString())
+      .set('pageSize', pageSize.toString());
 
     // Make the HTTP request with pagination parameters
-    this.http.get<ProjectsResponse>('/api/Projects', { params }).subscribe(data => {
-      // Update all the BehaviorSubjects with new data
-      this.projects$.next(data.projects);
-      this.totalPages$.next(data.totalPages);
-      this.currentPage$.next(data.currentPage);
-    });
+    return this.http.get<ProjectsResponse>('/api/Projects', { params }).pipe(
+      tap(data => {
+        // Update the BehaviorSubjects with new data
+        this.projects$.next(data.projects);
+        this.totalPages$.next(data.totalPages);
+        this.currentPage$.next(data.currentPage);
+      })
+    );
   }
+
 
   getProjectById(id: number) {
     this.http.get<Project>(`/api/Projects/${id}`).subscribe(data => {

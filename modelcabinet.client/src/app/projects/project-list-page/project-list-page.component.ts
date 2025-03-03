@@ -13,6 +13,7 @@ export class ProjectListPageComponent implements OnInit {
   projects$: BehaviorSubject<Project[]>;
   currentPage$: BehaviorSubject<number>;    // Current page number
   totalPages$: BehaviorSubject<number>;     // Total available pages
+  loading: boolean = false;                 // Track loading status
 
 
   constructor(private data: DataService) {
@@ -26,8 +27,20 @@ export class ProjectListPageComponent implements OnInit {
   }
 
   loadPage(page: number) {
+    this.loading = true; // Start with loading spinner on
+
     if (page < 1) return;
-    this.data.getAllProjects(page);
+
+    this.data.getAllProjects(page).subscribe(
+      (data) => {
+        this.projects$.next(data.projects);
+        this.loading = false;
+      },
+      (error) => {
+        console.error('Error loading projects:', error);
+        this.loading = false;
+      }
+    );
   }
 
   nextPage() {
