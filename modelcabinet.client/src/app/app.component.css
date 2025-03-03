@@ -1,12 +1,12 @@
 .main-container {
-  position: relative; /* This makes it the reference for absolute children */
-  min-height: 100vh; /* This ensures it at least covers the viewport height */
-  padding-bottom: 60px; /* This gives space for the footer, adjust based on your footer height */
+  position: relative; 
+  min-height: 100vh; 
+  padding-bottom: 60px; 
 }
 
 .footer {
-  position: absolute; /* Positioned absolutely relative to its nearest positioned ancestor */
-  bottom: 0; /* Aligns it to the bottom of the .main-container */
+  position: absolute; 
+  bottom: 0; 
   left: 0;
   width: 100%;
   background-color: #007bff;
