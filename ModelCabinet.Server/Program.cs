@@ -3,6 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using ModelCabinet.Server.Data;
 using Microsoft.AspNetCore.Identity;
 using ModelCabinet.Server.Models;
+using System.Text.Json.Serialization;
 
 namespace ModelCabinet.Server
 {
@@ -51,7 +52,12 @@ namespace ModelCabinet.Server
             });
 
             // Add services to the container.
-            builder.Services.AddControllersWithViews();
+
+            builder.Services.AddControllersWithViews().AddJsonOptions(options =>
+            {
+                options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+            });
+            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
