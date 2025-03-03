@@ -22,6 +22,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { TagLabelComponent } from './tags/tag-label/tag-label.component';
 import { TagEditComponent } from './tags/tag-edit/tag-edit.component';
 import { LoginComponent } from './login/login.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { LoginComponent } from './login/login.component';
     ContributorsComponent,
     TagLabelComponent,
     TagEditComponent,
-    LoginComponent
+    LoginComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
