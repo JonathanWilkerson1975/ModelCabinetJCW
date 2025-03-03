@@ -22,13 +22,11 @@ export class ProjectPageComponent implements OnInit {
 
   saveAsset() {
     if (!this.selectedAsset || !this.project.value) return;
-
     const updatedAsset = { ...this.selectedAsset, dateUpdated: new Date() };
 
     this.data.updateAssetById(updatedAsset.assetId, updatedAsset)
 
     const currentProject = this.project.value;
-
     const updatedAssets = currentProject.assets.map(asset =>
       asset.assetId === updatedAsset.assetId ? updatedAsset : asset
     );
@@ -49,7 +47,7 @@ export class ProjectPageComponent implements OnInit {
   getProjectData(): void {
     this.route.paramMap.subscribe(data => {
       this.projid = +data.get('id')!;
-      this.data.getProjectById(this.projid);
+      this.data.getProjectInfoById(this.projid);
       console.log(this.project, this.projid);
     });
   }
