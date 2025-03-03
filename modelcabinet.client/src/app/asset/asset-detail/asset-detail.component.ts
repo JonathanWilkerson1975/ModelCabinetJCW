@@ -12,13 +12,14 @@ import { HttpClient } from '@angular/common/http';
 export class AssetDetailComponent {
 
   @Input() asset: Asset = {
-    assetId: 0,
-    name: '',
-    path: '',
-    dateCreation: new Date(),
-    dateUpdated: new Date(),
-    fileSize: 0,
-    projectId: 0
+      assetId: 0,
+      name: '',
+      path: '',
+      dateCreation: new Date(),
+      dateUpdated: new Date(),
+      fileSize: 0,
+      projectId: 0,
+      assetTags: []
   };
   @Output() editRequested = new EventEmitter<Asset>();
 
