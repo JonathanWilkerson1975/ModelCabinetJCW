@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ModelCabinet.Server.Data;
 
@@ -11,9 +12,11 @@ using ModelCabinet.Server.Data;
 namespace ModelCabinet.Server.Migrations
 {
     [DbContext(typeof(ModelCabinetContext))]
-    partial class ModelCabinetContextModelSnapshot : ModelSnapshot
+    [Migration("20250225223904_UpdateStructureFix")]
+    partial class UpdateStructureFix
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -301,7 +304,7 @@ namespace ModelCabinet.Server.Migrations
 
                     b.HasIndex("ProjectId");
 
-                    b.ToTable("Asset", (string)null);
+                    b.ToTable("Asset");
 
                     b.HasData(
                         new
@@ -369,7 +372,7 @@ namespace ModelCabinet.Server.Migrations
                     b.HasIndex("Slug")
                         .IsUnique();
 
-                    b.ToTable("Project", (string)null);
+                    b.ToTable("Project");
 
                     b.HasData(
                         new
