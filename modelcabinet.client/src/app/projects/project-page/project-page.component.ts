@@ -43,7 +43,9 @@ export class ProjectPageComponent implements OnInit {
     this.selectedAsset = null;
   }
 
-
+  loadAsset(asset: Asset) {
+    this.viewport.load(asset);
+  }
 
   constructor(private route: ActivatedRoute, private data: DataService, private router: Router) {
     this.project$ = this.data.project$;

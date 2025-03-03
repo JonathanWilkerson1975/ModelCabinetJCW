@@ -3,7 +3,7 @@
 <div class="container" *ngIf="project">
   <div class="row">
     <div class="col-12 col-lg-6">
-      <app-viewport #viewport [stlModels]="['Assets/TestProject/3DBenchy.stl']"></app-viewport>
+      <app-viewport #viewport [stlModels]="[project!.assets[0].path]"></app-viewport>
     </div>
     <div class="col-12 col-lg-6">
       <h1 class="text-center">{{ project!.name }}</h1>
@@ -27,6 +27,11 @@
         <div class="col">
           <span><b>Modified Date:</b><br /><span class="h5">{{ project!.modifiedDate | date:'short' }}</span></span>
         </div>
+      </div>
+      <div class="viewport-controls">
+        <ul class="list-group">
+          <li class="list-group-item" *ngFor="let asset of project!.assets"><button class="btn btn-sm btn-info" (click)="loadAsset(asset)">Load</button> {{ asset.name }}</li>
+        </ul>
       </div>
       <b class="col">Tags:</b>
       <div class="row row-cols-auto justify-content-md-center">
