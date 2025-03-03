@@ -68,25 +68,16 @@ export class DataService {
     });
   }
 
-
-
-  getAllProjects(page: number = 1, pageSize: number = 8): Observable<ProjectsResponse> {
-    // Create HTTP parameters for pagination
+  getAllProjects(page: number = 1, pageSize?: number): Observable<ProjectsResponse> {
     const params = new HttpParams()
-      .set('page', page.toString())
-      .set('pageSize', pageSize.toString());
+      .set('page', page.toString());
 
-    // Make the HTTP request with pagination parameters
-    return this.http.get<ProjectsResponse>('/api/Projects', { params }).pipe(
-      tap(data => {
-        // Update the BehaviorSubjects with new data
-        this.projects$.next(data.projects);
-        this.totalPages$.next(data.totalPages);
-        this.currentPage$.next(data.currentPage);
-      })
-    );
+    if (pageSize) {
+      params.set('pageSize', pageSize.toString());
+    }
+
+    return this.http.get<ProjectsResponse>('/api/Projects', { params });
   }
-
 
   getProjectById(id: number) {
     this.http.get<Project>(`/api/Projects/${id}`).subscribe(data => {
