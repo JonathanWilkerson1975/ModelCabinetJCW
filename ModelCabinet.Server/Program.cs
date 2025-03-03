@@ -4,6 +4,7 @@ using ModelCabinet.Server.Data;
 using Microsoft.AspNetCore.Identity;
 using ModelCabinet.Server.Models;
 using System.Text.Json.Serialization;
+using Microsoft.Extensions.FileProviders;
 
 namespace ModelCabinet.Server
 {
@@ -87,7 +88,12 @@ namespace ModelCabinet.Server
             }
 
             app.UseHttpsRedirection();
-            app.UseStaticFiles();
+            app.UseStaticFiles(new StaticFileOptions
+            {
+                FileProvider = new PhysicalFileProvider(Path.Combine(builder.Environment.ContentRootPath, "Assets")),
+                RequestPath = "/Assets"
+            }
+            );
             app.UseRouting();
 
             // Add authentication and authorization
