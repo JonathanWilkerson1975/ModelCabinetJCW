@@ -1,11 +1,11 @@
-<!-- Loading Spinner (Show while loading) -->
-<div *ngIf="loading$ | async" class="loading-container">
+<!-- Show loading spinner while isLoaded is false -->
+<div *ngIf="!isLoaded" class="loading-container">
     <div class="spinner"></div>
     <p class="loading-text">Loading projects...</p>
 </div>
 
-<!-- Project List (Only show when loaded) -->
-<div *ngIf="!(loading$ | async)">
+<!-- Show main content when isLoaded is true -->
+<div *ngIf="isLoaded">
     <div class="container">
         <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4">
             <div class="col card bg-primary-subtle p-2 text-center"

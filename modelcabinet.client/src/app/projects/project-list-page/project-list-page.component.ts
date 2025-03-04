@@ -13,13 +13,12 @@ export class ProjectListPageComponent implements OnInit {
   projects$: BehaviorSubject<Project[]>;
   currentPage$: BehaviorSubject<number>;
   totalPages$: BehaviorSubject<number>;
-  loading$: BehaviorSubject<boolean>; // Get loading state from DataService
+  isLoaded: boolean = false;
 
   constructor(private data: DataService) {
     this.projects$ = this.data.projects$;
     this.currentPage$ = this.data.currentPage$;
     this.totalPages$ = this.data.totalPages$;
-    this.loading$ = this.data.loading$; // Listen to loading state
   }
 
   ngOnInit(): void {
@@ -28,7 +27,13 @@ export class ProjectListPageComponent implements OnInit {
 
   loadPage(page: number): void {
     if (page < 1) return;
+
     this.data.getAllProjects(page);
+    this.projects$.subscribe(data => {
+      if (data.length > 0) {
+        this.isLoaded = true;
+      }
+    })
   }
 
   nextPage() {

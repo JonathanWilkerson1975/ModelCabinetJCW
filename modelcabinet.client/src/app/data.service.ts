@@ -21,7 +21,6 @@ interface ProjectsResponse {
 })
 
 export class DataService {
-  loading$ = new BehaviorSubject<boolean>(false); // Track loading state
   projects$: BehaviorSubject<Project[]> = new BehaviorSubject<Project[]>([]);
   project$: BehaviorSubject<Project> = new BehaviorSubject<Project>({
     projectId: 0,
@@ -73,21 +72,11 @@ export class DataService {
     const params = new HttpParams().set('page', page.toString());
     if (pageSize) params.set('pageSize', pageSize.toString());
 
-    // Set loading to true before making the request
-    this.loading$.next(true);
-
     this.http.get<ProjectsResponse>('/api/Projects', { params }).subscribe(
       (data) => {
         this.projects$.next(data.projects);
-        this.totalPages$.next(data.totalPages);
         this.currentPage$.next(data.currentPage);
-
-        // Stop loading once data is received
-        this.loading$.next(false);
-      },
-      (error) => {
-        console.error('Error fetching projects:', error);
-        this.loading$.next(false);
+        this.totalPages$.next(data.totalPages);
       }
     );
   }
