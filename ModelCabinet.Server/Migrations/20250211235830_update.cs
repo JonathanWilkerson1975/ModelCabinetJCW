@@ -29,7 +29,7 @@ namespace ModelCabinet.Server.Migrations
                 values: new object[] {
                     new DateTime(2025, 2, 11, 15, 58, 29, 235, DateTimeKind.Local).AddTicks(632)
                     , new DateTime(2025, 2, 11, 15, 58, 29, 235, DateTimeKind.Local).AddTicks(635)
-                    , "Assets\\TestProject\\HelloWorld.stl" });
+                    , "Assets\\TestProject\\3DBenchy.stl" });
 
             migrationBuilder.UpdateData(
                 table: "Project",
