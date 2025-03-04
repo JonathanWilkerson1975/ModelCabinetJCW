@@ -1,37 +1,47 @@
-<div class="container">
+@let project = project$ | async;
+
+<div class="container" *ngIf="project">
   <div class="row">
     <div class="col-12 col-lg-6">
-      <!--Add Angular STL Viewer Here-->
-      <!--<app-viewport></app-viewport>-->
+      <app-viewport #viewport [stlModels]="[project!.assets[0].path]"></app-viewport>
     </div>
     <div class="col-12 col-lg-6">
-      <h1 class="text-center">{{ (project | async)!.name }}</h1>
-      <span><b>Description:</b><br /><span class="h5">{{ (project | async)!.shortDescription }}</span></span>
+      <h1 class="text-center">{{ project!.name }}</h1>
+      <span>
+        <b>Description:</b>
+        <br />
+        <span class="h5">{{ project!.shortDescription }}</span>
+      </span>
       <div class="row text-center">
         <div class="col">
-          <span><b>Description:</b><br /><span class="h5">{{ (project | async)!.shortDescription }}</span></span>
+          <span><b>Description:</b><br /><span class="h5">{{ project!.shortDescription }}</span></span>
         </div>
         <div class="col">
-          <span><b>Author:</b><br /><span class="h5">{{ (project | async)!.author }}</span></span>
+          <span><b>Author:</b><br /><span class="h5">{{ project!.author }}</span></span>
         </div>
       </div>
       <div class="row text-center">
         <div class="col">
-          <span><b>Creation Date:</b><br /><span class="h5">{{ (project | async)!.creationDate | date:'short' }}</span></span>
+          <span><b>Creation Date:</b><br /><span class="h5">{{ project!.creationDate | date:'short' }}</span></span>
         </div>
         <div class="col">
-          <span><b>Modified Date:</b><br /><span class="h5">{{ (project | async)!.modifiedDate | date:'short' }}</span></span>
+          <span><b>Modified Date:</b><br /><span class="h5">{{ project!.modifiedDate | date:'short' }}</span></span>
         </div>
+      </div>
+      <div class="viewport-controls">
+        <ul class="list-group">
+          <li class="list-group-item" *ngFor="let asset of project!.assets"><button class="btn btn-sm btn-info" (click)="loadAsset(asset)">Load</button> {{ asset.name }}</li>
+        </ul>
       </div>
       <b class="col">Tags:</b>
       <div class="row row-cols-auto justify-content-md-center">
-        <app-tag-label class="col" *ngFor="let projectTag of (project | async)!.projectTags" [tagLabel]="projectTag.tag"></app-tag-label>
+        <app-tag-label class="col" *ngFor="let projectTag of project!.projectTags" [tagLabel]="projectTag.tag"></app-tag-label>
       </div>
     </div>
     <span class="col-12 text-center h5"><b>Assets Included In Project:</b></span>
     <div class="col-12">
       <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4">
-        <div class="col" *ngFor="let asset of (project | async)!.assets">
+        <div class="col" *ngFor="let asset of project!.assets">
           <app-asset-detail [asset]="asset" (editRequested)="setAsset($event)"></app-asset-detail>
         </div>
       </div>
@@ -78,5 +88,5 @@
 <!--Raw Data viewer, for debugging purposes-->
 <a class="dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Show Raw Data</a>
 <ul class="dropdown-menu">
-  <li><pre>{{ project | async | json }}</pre></li>
+  <li><pre>{{ project | json }}</pre></li>
 </ul>

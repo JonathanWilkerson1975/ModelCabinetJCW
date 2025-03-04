@@ -20,7 +20,7 @@ describe('TagLabelComponent', () => {
       tagName: 'Testing',
       color: 'fc7f7f'
     }
-    component.tag = tagData;
+    component.tagLabel = tagData;
 
     fixture.detectChanges();
   });
