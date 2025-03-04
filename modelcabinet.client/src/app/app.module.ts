@@ -1,4 +1,4 @@
-import { HttpClientModule, provideHttpClient } from "@angular/common/http";
+import { provideHttpClient } from "@angular/common/http";
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { AppRoutingModule } from "./app-routing.module";
@@ -49,12 +49,11 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     TagLabelComponent,
     TagEditComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
     PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule,
     AppRoutingModule,
     FormsModule, // I added this for the asset edit form modal - Clarissa
     ReactiveFormsModule // For Project Edit Component

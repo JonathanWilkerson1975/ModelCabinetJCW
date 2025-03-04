@@ -31,7 +31,7 @@ const routes: Routes = [
   { path: 'coming-soon', component: ComingSoonComponent },
   { path: 'Edit-Tags', component:TagEditComponent },
   { path: 'Login', component: LoginComponent },
-  { path: 'Register', component: RegisterComponent }
+  { path: 'Register', component: RegisterComponent },
   { path: '**', component: PageNotFoundComponent }
 ];
 
