@@ -10,7 +10,9 @@ import { AssetDetailComponent } from './asset/asset-detail/asset-detail.componen
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { ComingSoonComponent } from './coming-soon/coming-soon.component';
 import { AboutModelCabinetComponent } from './About-ModelCabinet/About-ModelCabinet.component';
+import { TagEditComponent } from './tags/tag-edit/tag-edit.component';
 import { LoginComponent } from './login/login.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 // TODO: Change Names to actual Module Names
 const routes: Routes = [
@@ -26,7 +28,9 @@ const routes: Routes = [
   { path: 'Assets/:id', component: AssetDetailComponent},
   { path: 'User', component: ProfilePageComponent },
   { path: 'coming-soon', component: ComingSoonComponent },
+  { path: 'Edit-Tags', component:TagEditComponent },
   { path: 'login', component: LoginComponent },
+  { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({
