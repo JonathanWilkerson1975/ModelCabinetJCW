@@ -37,8 +37,48 @@
             <button class="btn btn-outline-success" type="submit">Search</button>
           </form>
         </li>
-        <li class="nav-item"><a class="nav-link" routerLink="/User"><i class="bi bi-person-circle"></i></a></li>
+        <!--<li class="nav-item"><a class="nav-link" routerLink="/User"><i class="bi bi-person-circle"></i></a></li>-->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-person-circle"></i>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <!-- Conditionally render links based on user login state -->
+            <li *ngIf="isAuthenticated()">
+              <a class="dropdown-item" routerLink="/User">User</a>
+            </li>
+            <li *ngIf="isAuthenticated()">
+              <!-- Button to trigger the logout confirmation modal -->
+              <button class="dropdown-item" data-bs-toggle="modal"  data-bs-target="#logoutModal">Logout</button>
+            </li>
+            <li *ngIf="!isAuthenticated()">
+              <a class="dropdown-item" routerLink="/login">Login</a>
+            </li>
+            <li *ngIf="!isAuthenticated()">
+              <a class="dropdown-item" routerLink="/register">Register</a>
+            </li>
+          </ul>
+        </li>
       </ul>
     </div>
   </div>
 </nav>
+
+<!-- Modal for Logout Confirmation -->
+<div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="logoutModalLabel">Confirm Logout</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Are you sure you want to log out?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary" (click)="logout()" data-bs-dismiss="modal">Logout</button>
+      </div>
+    </div>
+  </div>
+</div>
