@@ -30,8 +30,8 @@ const routes: Routes = [
   { path: 'User', component: ProfilePageComponent },
   { path: 'coming-soon', component: ComingSoonComponent },
   { path: 'Edit-Tags', component:TagEditComponent },
-  { path: 'Login', component: LoginComponent },
-  { path: 'Register', component: RegisterComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
   { path: '**', component: PageNotFoundComponent }
 ];
 
