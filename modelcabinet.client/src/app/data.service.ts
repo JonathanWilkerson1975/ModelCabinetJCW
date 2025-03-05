@@ -81,6 +81,13 @@ export class DataService {
     );
   }
 
+  getProjectById(id: number) {
+    this.http.get<Project>(`/api/Projects/${id}`).subscribe(data => {
+      this.project$.next(data);
+      // this.assets$.next(data.asset.&values);
+    });
+  }
+
   // https://www.bacancytechnology.com/qanda/angular/difference-between-behaviorsubject-and-observable
   // Modify this if needed, observables should be fine since this is being pulled at certain times and we don't
   // need to grab the most up to date state
@@ -89,12 +96,12 @@ export class DataService {
 
   // https://www.learnrxjs.io/learn-rxjs/operators/utility/do
   // not modifying data so it'll be an exact copy of the original
+
   getProjectInfoById(id: number): Observable<Project> {
     return this.http.get<Project>(`/api/Projects/${id}`).pipe(
       tap(data => this.project$.next(data))
     );
   }
-
   updateProjectById(id: number, project: Project) {
     this.http.put<Project>(`/api/Projects/${id}`, project).subscribe(data => {
       this.project$.next(data);
