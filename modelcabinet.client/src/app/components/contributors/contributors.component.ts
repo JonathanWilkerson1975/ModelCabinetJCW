@@ -1,5 +1,9 @@
-import { HttpClient } from '@angular/common/http';
+
+
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { catchError } from 'rxjs/operators';
+import { throwError } from 'rxjs';
 
 interface Developer {
   login: string;
@@ -10,9 +14,8 @@ interface Developer {
 @Component({
   selector: 'app-contributors',
   templateUrl: './contributors.component.html',
-  styleUrl: './contributors.component.css'
+  styleUrls: ['./contributors.component.css']
 })
-
 export class ContributorsComponent implements OnInit {
   contributors: Developer[] = [];
 
@@ -20,8 +23,26 @@ export class ContributorsComponent implements OnInit {
 
   ngOnInit(): void {
     this.http.get<Developer[]>('https://api.github.com/repos/CCAppDevs/ModelCabinet/contributors')
-    .subscribe(data => {
-      this.contributors = data
-    });
+      .pipe(
+        catchError(this.handleError)  
+      )
+      .subscribe(
+        data => {
+          this.contributors = data;
+        } 
+      );
+  }
+
+  private handleError(error: HttpErrorResponse) {
+    if (error.error instanceof ErrorEvent) {
+      
+      console.error('An error occurred:', error.error.message);
+    } else {
+      
+      console.error(`Backend returned code ${error.status}, ` +
+        `body was: ${error.error}`);
+    }
+    
+    return throwError('Something bad happened; please try again later.');
   }
 }
