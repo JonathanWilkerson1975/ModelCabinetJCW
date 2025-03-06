@@ -17,17 +17,18 @@ describe('ProjectPageComponent', () => {
   let fixture: ComponentFixture<ProjectPageComponent>;
 
   const mockProject: Project = {
-      projectId: 1,
-      name: 'Test Project',
-      creationDate: new Date(),
-      modifiedDate: new Date(),
-      description: 'Test description',
-      author: 'Author name',
-      version: '1.0',
-      assets: [],
-      shortDescription: 'Short description',
-      slug: 'test-project',
-      projectTags: []
+    projectId: 1,
+    name: 'Test Project',
+    creationDate: new Date(),
+    modifiedDate: new Date(),
+    description: 'Test description',
+    author: 'Author name',
+    version: '1.0',
+    assets: [],
+    shortDescription: 'Short description',
+    slug: 'test-project',
+    projectTags: []
+
   };
 
   let mockDataService;
