@@ -16,7 +16,7 @@ namespace ModelCabinet.Server.Migrations
                 keyColumn: "AssetId",
                 keyValue: 1,
                 columns: new[] { "DateCreation", "DateUpdated", "Path" },
-                values: new object[] { 
+                values: new object[] {
                     new DateTime(2025, 2, 11, 15, 58, 29, 235, DateTimeKind.Local).AddTicks(618)
                     , new DateTime(2025, 2, 11, 15, 58, 29, 235, DateTimeKind.Local).AddTicks(621)
                     , "Assets\\TestProject\\HelloWorld.stl" });
@@ -26,10 +26,10 @@ namespace ModelCabinet.Server.Migrations
                 keyColumn: "AssetId",
                 keyValue: 2,
                 columns: new[] { "DateCreation", "DateUpdated", "Path" },
-                values: new object[] { 
+                values: new object[] {
                     new DateTime(2025, 2, 11, 15, 58, 29, 235, DateTimeKind.Local).AddTicks(632)
                     , new DateTime(2025, 2, 11, 15, 58, 29, 235, DateTimeKind.Local).AddTicks(635)
-                    , "Assets\\TestProject\\HelloWorld.stl" });
+                    , "Assets\\TestProject\\3DBenchy.stl" });
 
             migrationBuilder.UpdateData(
                 table: "Project",
