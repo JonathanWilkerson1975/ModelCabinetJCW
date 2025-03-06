@@ -28,6 +28,7 @@ describe('ProjectPageComponent', () => {
     shortDescription: 'Short description',
     slug: 'test-project',
     projectTags: []
+
   };
 
   let mockDataService;
