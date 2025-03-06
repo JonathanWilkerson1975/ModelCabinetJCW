@@ -1,11 +1,11 @@
-/* Navbar Background */
+
 .navbar {
   background-color: #003366 !important; 
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   padding: 10px 20px;
 }
 
-/* Logo */
+
 .navbar-logo {
   height: 40px;
   margin-right: 10px;
@@ -16,13 +16,13 @@
     transform: scale(1.1);
   }
 
-/* Navbar Text */
+
 .navbar-text {
   color: #ffffff !important; 
   font-weight: bold;
 }
 
-/* Navbar Links */
+
 .nav-link {
   color: #ffffff !important; 
   font-weight: 500;

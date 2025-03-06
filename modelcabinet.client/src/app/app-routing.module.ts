@@ -13,7 +13,7 @@ import { AboutModelCabinetComponent } from './About-ModelCabinet/About-ModelCabi
 import { TagEditComponent } from './tags/tag-edit/tag-edit.component';
 import { LoginComponent } from './login/login.component';
 
-// TODO: Change Names to actual Module Names
+
 const routes: Routes = [
   { path: '', pathMatch: "full", component: LandingPageComponent },
   { path: 'LandingPage', redirectTo: '' },

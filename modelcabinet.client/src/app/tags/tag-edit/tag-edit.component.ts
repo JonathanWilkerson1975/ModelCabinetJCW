@@ -36,7 +36,7 @@ export class TagEditComponent implements OnInit{
     this.clearEdit();
   }
 
-  // Translated from Project-Edit components form code
+
   onSubmit() {
     if (this.selectedTag == null || !this.tagForm.valid) {
       return;

@@ -52,10 +52,10 @@ import { LoginComponent } from './login/login.component';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    FormsModule, // I added this for the asset edit form modal - Clarissa
-    ReactiveFormsModule // For Project Edit Component
+    FormsModule, 
+    ReactiveFormsModule 
   ],
-  providers: [provideHttpClient()], // Using this method rather than the module as the module is labeled as depricated
+  providers: [provideHttpClient()], 
   bootstrap: [AppComponent]
 })
 export class AppModule {
