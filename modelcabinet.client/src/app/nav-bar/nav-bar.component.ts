@@ -17,6 +17,11 @@ export class NavBarComponent {
     return this.authService.isAuthenticated(); 
   }
 
+  onSearch(event: Event): void {
+    event.preventDefault();
+    this.router.navigate(['/coming-soon']);
+  }
+
   logout(): void {
     console.log('Logout process initiated');
     this.isLoggingOut = true;
@@ -33,12 +38,6 @@ export class NavBarComponent {
         // if error, redirect anyway
         this.router.navigate(['/']);
       }
-    })
+    });
   }
-  
-  onSearch(event: Event): void {
-    event.preventDefault(); 
-    this.router.navigate(['/coming-soon']); 
-  }
-
 }
