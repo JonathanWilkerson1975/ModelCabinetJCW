@@ -17,16 +17,17 @@ describe('ProjectPageComponent', () => {
   let fixture: ComponentFixture<ProjectPageComponent>;
 
   const mockProject: Project = {
-    projectId: 1,
-    name: 'Test Project',
-    creationDate: new Date(),
-    modifiedDate: new Date(),
-    description: 'Test description',
-    author: 'Author name',
-    version: '1.0',
-    assets: [],
-    shortDescription: 'Short description',
-    slug: 'test-project',
+      projectId: 1,
+      name: 'Test Project',
+      creationDate: new Date(),
+      modifiedDate: new Date(),
+      description: 'Test description',
+      author: 'Author name',
+      version: '1.0',
+      assets: [],
+      shortDescription: 'Short description',
+      slug: 'test-project',
+      projectTags: []
   };
 
   let mockDataService;
@@ -57,7 +58,7 @@ describe('ProjectPageComponent', () => {
 
     fixture = TestBed.createComponent(ProjectPageComponent);
     component = fixture.componentInstance;
-    component.project = new BehaviorSubject<Project>(mockProject);
+    component.project$ = new BehaviorSubject<Project>(mockProject);
     fixture.detectChanges();
   });
 
