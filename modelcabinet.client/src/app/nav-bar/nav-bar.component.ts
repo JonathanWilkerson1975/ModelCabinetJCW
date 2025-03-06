@@ -3,7 +3,6 @@ import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
 import { finalize } from 'rxjs/operators';
 
-
 @Component({
   selector: 'app-nav-bar',
   templateUrl: './nav-bar.component.html',
@@ -35,6 +34,11 @@ export class NavBarComponent {
         this.router.navigate(['/']);
       }
     })
-
   }
+  
+  onSearch(event: Event): void {
+    event.preventDefault(); 
+    this.router.navigate(['/coming-soon']); 
+  }
+
 }

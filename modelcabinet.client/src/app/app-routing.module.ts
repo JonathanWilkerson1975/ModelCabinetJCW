@@ -17,7 +17,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { authGuard } from './guards/auth.guard';
 import { nonAuthGuard } from './guards/non-auth.guard';
 
-// TODO: Change Names to actual Module Names
+
 const routes: Routes = [
   { path: '', pathMatch: "full", component: LandingPageComponent },
   { path: 'LandingPage', redirectTo: '' },
