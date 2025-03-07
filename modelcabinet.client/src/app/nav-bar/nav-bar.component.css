@@ -64,10 +64,11 @@
 
 
 .navbar .form-control {
-  width: 250px; 
-  margin: 0; 
-  height: 40px; 
-  border-radius: 0.25rem; 
+  width: 250px;
+  margin: 0;
+  height: 40px;
+  border-radius: 0.25rem;
+}
 
 .navbar .d-flex {
   display: flex; 
